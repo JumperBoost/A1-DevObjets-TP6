@@ -95,7 +95,7 @@ configuration gagnante et _faux_ sinon. Pour un taquin en deux dimensions, la po
 ```
 
 4. Complétez la méthode `public ArrayList<Taquin> genererFils()` qui retourne la liste des objets `Taquin` que l’on
-peut obtenir en faisant un mouvement valide.
+peut obtenir en faisant un mouvement valide. Attention, cette méthode ne doit pas modifier this, et les taquins retournés dans la liste doivent être "indépendants" de this (c'est à dire avoir leur propre tableau d'entiers).
 
 5. Redéfinissez la méthode `equals(Object o)` de la classe `Object` afin qu'elle permette de comparer le `Taquin` courant
 avec un autre passé en paramètre.
