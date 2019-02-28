@@ -78,7 +78,7 @@ le "_père_" de `c2` est `c1`. Un maillon de cette liste chaînée est donc un c
 La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut`. Vous devez la compléter comme suit :
 
 1. Ajoutez un attribut de type `int[][]` qui représentera le plateau de jeu et implémentez un
-constructeur sans paramètres qui place le taquin dans une configuration initiale de votre choix. On representera le trou
+constructeur de votre choix. On representera le trou
 du plateau par le chiffre `0`. 
 
 2. Redéfinissez la méthode `toString()` (de la classe `Object`) afin d'afficher le contenu du plateau de `Taquin`.
