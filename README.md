@@ -86,13 +86,13 @@ du plateau par le chiffre `0`.
 3. Complétez la méthode `public boolean estGagnant()` afin qu'elle retourne _vrai_ si le plateau est dans une
 configuration gagnante et _faux_ sinon. Pour un taquin en deux dimensions, la position gagnante est la configuration :
 
-```
-+-----+
-|1 2 3|
-|4 5 6|
-|7 8 0|
-+-----+
-```
+   ```
+   +-----+
+   |1 2 3|
+   |4 5 6|
+   |7 8 0|
+   +-----+
+   ```
 
 4. Complétez la méthode `public ArrayList<Taquin> genererFils()` qui retourne la liste des objets `Taquin` que l’on
 peut obtenir en faisant un mouvement valide. Attention, cette méthode ne doit pas modifier this, et les taquins retournés dans la liste doivent être "indépendants" de this (c'est à dire avoir leur propre tableau d'entiers).
