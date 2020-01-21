@@ -30,7 +30,7 @@ Avant de démarrer le TP, vérifiez que vous n'avez pas atteint votre quota d'es
 
 Cliquez sur le lien ci-dessous pour faire votre fork privé du TP (**attention, pas de fork à la main !**):
 
-https://classroom.github.com/a/DWp3d1wf
+LIEN CLASSROOM ICI
 
 Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche à 23h00**
 
