@@ -32,7 +32,7 @@ Cliquez sur le lien ci-dessous pour faire votre fork privé du TP (**attention, 
 
 https://classroom.github.com/a/DWp3d1wf
 
-Date limite de rendu de votre code sur le dépôt GitHub : **Vendredi 15 mars à 23h00**
+Date limite de rendu de votre code sur le dépôt GitHub : **Lundi 18 mars à 23h00**
 
 L’objectif de ce TP est d’écrire un algorithme qui résout par exploration totale n’importe quel "puzzle". Nous allons
 illustrer cet algorithme sur un puzzle très simple : un [taquin](https://fr.wikipedia.org/wiki/Taquin) en une dimension.
@@ -79,7 +79,7 @@ le "_père_" de `c2` est `c1`. Un maillon de cette liste chaînée est donc un c
 La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut`. Vous devez la compléter comme suit :
 
 1. Ajoutez un attribut de type `int[][]` qui représentera le plateau de jeu et implémentez un
-constructeur sans paramètres qui place le taquin dans une configuration initiale de votre choix. On representera le trou
+constructeur de votre choix. On representera le trou
 du plateau par le chiffre `0`. 
 
 2. Redéfinissez la méthode `toString()` (de la classe `Object`) afin d'afficher le contenu du plateau de `Taquin`.
@@ -87,16 +87,16 @@ du plateau par le chiffre `0`.
 3. Complétez la méthode `public boolean estGagnant()` afin qu'elle retourne _vrai_ si le plateau est dans une
 configuration gagnante et _faux_ sinon. Pour un taquin en deux dimensions, la position gagnante est la configuration :
 
-```
-+-----+
-|1 2 3|
-|4 5 6|
-|7 8 0|
-+-----+
-```
+   ```
+   +-----+
+   |1 2 3|
+   |4 5 6|
+   |7 8 0|
+   +-----+
+   ```
 
 4. Complétez la méthode `public ArrayList<Taquin> genererFils()` qui retourne la liste des objets `Taquin` que l’on
-peut obtenir en faisant un mouvement valide.
+peut obtenir en faisant un mouvement valide. Attention, cette méthode ne doit pas modifier this, et les taquins retournés dans la liste doivent être "indépendants" de this (c'est à dire avoir leur propre tableau d'entiers).
 
 5. Redéfinissez la méthode `equals(Object o)` de la classe `Object` afin qu'elle permette de comparer le `Taquin` courant
 avec un autre passé en paramètre.
