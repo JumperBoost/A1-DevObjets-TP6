@@ -75,7 +75,8 @@ le "_père_" de `c2` est `c1`. Un maillon de cette liste chaînée est donc un c
 Dans tout le TP, nous vous invitons à vérifier au fur et à mesure que votre code est correct.
 Pour cela utilisez les tests fournis (pour certaines questions seulement), et pensez à en ajouter d'autres, et à écrire un main.
 
-### Exercice 1
+### Partie 1
+#### Exercice 1
 La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut`. Vous devez la compléter comme suit :
 
 1. Complétez le constructeur de taquin prenant en paramètre un int[][] (le trou du plateau est représenté par le chiffre `0`). 
@@ -127,7 +128,7 @@ Si le trou n'est pas collé à droite, alors ... etc.
  
 
 
-### Exercice 2
+#### Exercice 2
 
 Rappelez-vous que nous aurons besoin de "couples chaînés" pour pouvoir retrouver la suite des coups effectués lorsque
 l’algorithme trouve une position gagnante. C'est pour cela que la classe `Couple`vous est donnée. Complétez cette classe
@@ -180,7 +181,7 @@ ainsi que le couple `(t,c)` à `frontiere`, et ne rien faire pour le taquin `1 2
    pour construire les autres couples.
 
 -->
-### Exercice 3
+#### Exercice 3
 
 La classe `Contexte` va encapsuler l'algorithme général de résolution du jeu. 
 L'attribut `Taquin taquin` servira à stocker le `Taquin` initial donné à l'objet `Contexte`, et l'attribut `solution` de type `ArrayList<Taquin>`
@@ -213,12 +214,12 @@ savoir s'il est dans une boucle infinie ou si "quelque chose" progresse ? Quelle
 (même si cela ralentit énormément l'algorithme) pour répondre à cette question ?
 
 
-### Exercice 4
+### Partie 2
 
 Maintenant nous allons généraliser cette stratégie à la résolution d'autres jeux de type "puzzle". Afin de garder un
 historique du programme écrit précédemment, nous allons travailler dans un package différent.
 
-1. Créez un nouveau package `fr.umontpellier.iut.exo4` et copiez/collez les 3 classes écrites précédemment. Pour faire
+1. Créez un nouveau package `fr.umontpellier.iut.partie2` et copiez/collez les 3 classes écrites précédemment. Pour faire
  cela correctement, la manière la plus simple est de sélectionner **en même temps** les 3 classes dans l'IDE
  &rightarrow; _Copier_  &rightarrow; _Coller_ dans le package. Quelque soit la manière dont vous allez procéder, l'IDE
  vous signalera des duplications de code (logique, car c'est ce qui vous avez fait), mais _dans ce cas_ (et pour
@@ -227,16 +228,13 @@ historique du programme écrit précédemment, nous allons travailler dans un pa
  exercices précédents.
 
 2. Observez que les fonctions "essentielles" de la classe `Taquin` sont suffisamment générales pour être appliquées sur
- d'autres jeux de même nature. Ajoutez donc au package `fr.umontpellier.iut.exo4` une interface `JeuPuzzle` avec les
+ d'autres jeux de même nature. Ajoutez donc au package `fr.umontpellier.iut.partie2` une interface `JeuPuzzle` avec les
  méthodes en question.
 
 3. Faites en sorte que Taquin soit une implémentation de l'interface  `JeuPuzzle`  et modifiez votre programme pour
 que cela ait du sens et fonctionne.
  
-   _**Correction**_ : _Pour les questions 2-3 on leur fait faire à la main d'abord, et ensuite on peut utiliser l'IDE qui fera l'extraction de l'interface tout seul. Pour ça :
-   clic droit sur le nom de la classe `Taquin` &rightarrow; Refactor &rightarrow; Extract &rightarrow; Interface...
-   On peut montrer la manipulation aux étudiants en projetant sur l'écran si on voit qu'ils ont des difficultés._
-
+  
  
 Nous allons maintenant utiliser cette interface pour implémenter un autre jeu : [les tours de Hanoï](https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF).
 Dans ce jeu on considère 3 poteaux (dénommés "1" (à gauche), "2" (au milieu), et "3" (à droite)), ainsi que N disques
@@ -264,7 +262,7 @@ pour tout `JeuPuzzle`.
 
 6. Dessinez le diagramme de classes de cet exercice.
  
-   _**Correction**_ : ![](ressources/DiagrammeClasses.png)
+   
 
 
 **Remarque** : Cette façon de programmer, en proposant une interface d'algorithme générale qui sera ensuite implémentée

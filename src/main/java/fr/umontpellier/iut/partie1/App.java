@@ -1,4 +1,4 @@
-package fr.umontpellier.iut;
+package fr.umontpellier.iut.partie1;
 
 public class App {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package fr.umontpellier.iut;
+package fr.umontpellier.iut.partie1;
 
 import java.util.ArrayList;
 
