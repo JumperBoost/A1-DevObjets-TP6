@@ -8,7 +8,6 @@
 * [Email](mailto:petru.valicov@umontpellier.fr) pour une question d'ordre privée concernant le cours.
 * Le [sujet du TP](TP6.pdf) en format .pdf téléchargeable et imprimable.
 
-
 Avant de démarrer le TP, vérifiez que vous n'avez pas atteint votre quota d'espace de stockage autorisé :
 
 * placez-vous dans votre `$HOME` et utilisez les commandes suivantes :
@@ -30,9 +29,7 @@ Avant de démarrer le TP, vérifiez que vous n'avez pas atteint votre quota d'es
 
 Cliquez sur le lien ci-dessous pour faire votre fork privé du TP (**attention, pas de fork à la main !**):
 
-LIEN CLASSROOM ICI
-
-Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche à 23h00**
+Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche à *** 23h00**
 
 L’objectif de ce TP est d’écrire un algorithme qui résout par exploration totale n’importe quel "puzzle". Nous allons
 illustrer cet algorithme sur un puzzle très simple : un [taquin](https://fr.wikipedia.org/wiki/Taquin) en une dimension.
@@ -75,30 +72,31 @@ obtenues à chaque étape intermédiaire pour arriver à la solution finale. Avo
 un utilisateur, afin de voir la stratégie à adopter pour résoudre le puzzle à partir de la configuration initiale. C'est aussi pratique pour vérifier si votre programme fonctionne correctement... La trace de la solution va correspondre à une liste chaînée de configurations construite de la façon suivante : lorsqu’une configuration `c2` est générée à partir d’une configuration `c1`, on mémorisera que
 le "_père_" de `c2` est `c1`. Un maillon de cette liste chaînée est donc un couple (_configuration taquin, couple parent_).
 
+Dans tout le TP, nous vous invitons à vérifier au fur et à mesure que votre code est correct.
+Pour cela utilisez les tests fournis (pour certaines questions seulement), et pensez à en ajouter d'autres, et à écrire un main.
+
 ### Exercice 1
 La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut`. Vous devez la compléter comme suit :
 
-1. Ajoutez un attribut de type `int[][]` qui représentera le plateau de jeu et implémentez un
-constructeur de votre choix. On representera le trou
-du plateau par le chiffre `0`. 
+1. Complétez le constructeur de taquin prenant en paramètre un int[][] (le trou du plateau est représenté par le chiffre `0`). 
 
-2. Redéfinissez la méthode `toString()` (de la classe `Object`) afin d'afficher le contenu du plateau de `Taquin`.
+1. Redéfinissez la méthode `toString()` (de la classe `Object`) afin d'afficher le contenu du plateau de `Taquin`.
+L'orientation imposée est la suivante : la case [0][0] est en haut à gauche,
+et la case [2][2] en bas à droite.
 
 3. Complétez la méthode `public boolean estGagnant()` afin qu'elle retourne _vrai_ si le plateau est dans une
 configuration gagnante et _faux_ sinon. Pour un taquin en deux dimensions, la position gagnante est la configuration :
 
-   ```
-   +-----+
-   |1 2 3|
-   |4 5 6|
-   |7 8 0|
-   +-----+
-   ```
+```
++-----+
+|1 2 3|
+|4 5 6|
+|7 8 0|
++-----+
+```
 
-4. Complétez la méthode `public ArrayList<Taquin> genererFils()` qui retourne la liste des objets `Taquin` que l’on
-peut obtenir en faisant un mouvement valide. Attention, cette méthode ne doit pas modifier this, et les taquins retournés dans la liste doivent être "indépendants" de this (c'est à dire avoir leur propre tableau d'entiers).
 
-5. Redéfinissez la méthode `equals(Object o)` de la classe `Object` afin qu'elle permette de comparer le `Taquin` courant
+4. Redéfinissez la méthode `equals(Object o)` de la classe `Object` afin qu'elle permette de comparer le `Taquin` courant
 avec un autre passé en paramètre.
     
     **Astuce :** Nous vous conseillons d'utiliser votre IDE pour redéfinir `equals(Object o)` et de prendre le temps de
@@ -106,12 +104,26 @@ avec un autre passé en paramètre.
     classe `Taquin`. Prêtez également attention à la redéfinition de la méthode `public int hashCode()` de `Object` qui
     va être faite. Discutez-en également avec votre enseignant (voir également le
     [cours](http://pageperso.lif.univ-mrs.fr/~petru.valicov/Cours/M2103/BPOO_Heritage_Polymorphisme_x4.pdf)).
-      
     
-6. Vérifiez votre programme en instanciant dans la classe principale (`App`) des taquins avec des configurations
- initiales (parfois différentes, parfois égales) et comparez-les pour s'assurer que la méthode `equals(Object o)`
- fonctionne correctement. Pour chacun des taquins instanciés, vous afficherez la liste des fils retournée par `genererFils()`.
-  
+    _**Correction**_ : _Ici il faudra leur rappeler que `hashCode()` et `equals(Object o)` sont très liés et doivent être
+   redéfinies en même temps pour respecter le contrat imposé par la classe `Object`. Notamment l'entier retourné par
+   `hashCode()` doit toujours être le même pour deux objets pour lesquels `equals(Object o)` renvoie `true`. Il y a aussi
+   un problème avec les tableaux à plusieurs de dimensions : dans ce cas le moyen le plus simple c'est d'utiliser les
+   méthodes statiques `Arrays.deepEquals(Object o)` et `Arrays.deepHashCode()` conçues pour les tableaux multidimensionnels.
+   Plus de documentation sur la doc de l'API : https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#hashCode--_
+
+      
+
+5. Complétez la méthode  `public int[] trouverTrou()` (voir la spécification dans le code), puis la méthode `public ArrayList<Taquin> genererFils()` qui retourne la liste des objets `Taquin` que l’on
+peut obtenir en faisant un mouvement valide. Attention, cette méthode ne doit pas modifier `this`, et les taquins retournés dans la liste doivent être "indépendants" de `this` (c'est-à-dire avoir leur propre tableau d'entiers comme plateau). Pour genererFils, on peut suivre la stratégie suivante : commencer par trouver les coordonnées du trou.
+Si le trou n'est pas collé à gauche, alors on peut générer le fils dans lequel le trou est déplacé à gauche.
+Si le trou n'est pas collé à droite, alors ... etc. 
+    
+    _**Correction**_ : _Ici, les étudiants devraient se rendre compte qu'il leur faut maintenant un constructeur
+    `Taquin(int[][] plateau)` pour pouvoir créer de nouveaux objets `Taquin` facilement. Également, il faudrait leur
+    rappeler que les tableaux sont des types objets et donc il faut faire des "vraies" copies de tableau pour chaque
+    nouveau objet `Taquin`._
+
  
 
 
@@ -122,35 +134,36 @@ l’algorithme trouve une position gagnante. C'est pour cela que la classe `Coup
 de la façon suivante :
    
 
-1. Ajoutez un attribut `taquin` de type `Taquin` et un attribut `predecesseur` de type `Couple`. Ajoutez un constructeur
-pour initialiser ces deux attributs.
-
-2. Complétez la méthode `public ArrayList<Taquin> getListeDeMouvements()` ayant les spécifications suivantes :
+1. Complétez la méthode `public ArrayList<Taquin> getListeDeMouvements()` ayant les spécifications suivantes :
 
    * __hypothèse__ : le couple courant (`this`) représente une solution ayant été atteinte depuis la racine de l’arbre
    d’exploration (on a donc un chaînage du type 
    `null` &leftarrow; _couple_racine_ &leftarrow; _couple_1_ &leftarrow; ... &leftarrow; _couple_k_ &leftarrow; _couple courant_)
-   * __effet__ : retourne une  `ArrayList<Taquin>` de la forme `[couple_racine.t, couple_1.t,..,couple_k.t, couple_courant.t]`,
+   * __effet__ : retourne une  `ArrayList<Taquin>` de la forme `[couple_racine.jeuPuzzle, couple_1.jeuPuzzle,..,couple_k.jeuPuzzle, couple_courant.jeuPuzzle]`,
    qui correspond donc à la description de la solution trouvée
    
-3. Complétez la méthode `public void mettreAJour(ArrayList<Couple> frontiere, ArrayList<Taquin> tab, ArrayList<Taquin> dejaVus)`
+2. Complétez la méthode `public static void mettreAJour(Couple c, ArrayList<Couple> frontiere, ArrayList<Taquin> tab, ArrayList<Taquin> dejaVus)`
 pour qu'elle respecte la spécification ci-dessous. Avant de lire cette spécification, considérons l'exemple dans lequel 
-   * `coupleGauche` représente le couple dont le taquin est celui de gauche dans la frontière _b)_ de l'exemple
+   * `c` représente le couple dont le taquin est celui de gauche dans la frontière _b)_ de l'exemple
    ci-dessus (et son prédécesseur pointe sur la racine)  
    * `frontiere` est l'ensemble de `Couple` dont les taquins sont ceux de _b)_ 
-   * `tab` est l'ensemble des 2 taquins fils du taquin contenu dans `coupleGauche` (`* 1 2 3 4` et `1 2 * 3 4`)
+   * `tab` est l'ensemble des 2 taquins fils du taquin contenu dans `c` (`* 1 2 3 4` et `1 2 * 3 4`)
    * `dejaVus` est l'ensemble des 3 taquins de _a)_ U _b)_.
     
-   Dans cet exemple, `coupleGauche.mettreAJour(frontiere,tab,dejaVus)` doit ajouter le taquin `t = * 1 2 3 4` à `dejaVus`
-ainsi que le couple `(t,coupleGauche)` à `frontiere`, et ne rien faire pour le taquin `1 2 * 3 4` puisqu'il est déjà dans `dejaVus`.
+   Dans cet exemple, `Couple.mettreAJour(c,frontiere,tab,dejaVus)` doit ajouter le taquin `t = * 1 2 3 4` à `dejaVus`
+ainsi que le couple `(t,c)` à `frontiere`, et ne rien faire pour le taquin `1 2 * 3 4` puisqu'il est déjà dans `dejaVus`.
 
-   La spécification est donc la suivante : `mettreAJour` ajoute à `frontiere` (et à `dejaVus`) tous les couples `(t,this)` avec `t` appartenant à `tab`, et tels que `t` n’est pas dans `dejaVus`.
+   La spécification est donc la suivante : `mettreAJour` ajoute à `frontiere` (et à `dejaVus`) tous les couples `(t,c)` avec `t` appartenant à `tab`, et tels que `t` n’est pas dans `dejaVus`.
 
    **Remarque :** Ici nous vous recommandons d'utiliser entre autres la méthode `boolean contains(o)` définie dans
    `ArrayList` qui renvoie vrai si `o` appartient à l'objet `ArrayList`. Expliquez pourquoi ce test d'appartenance
    fonctionnera correctement si on l'invoque sur un objet `ArrayList<Taquin>`.
    
-4. Testez en écrivant un test unitaire qui crée 3 taquins `t1`, `t2`, `t3`, puis un `Couple` contenant le chaînage
+    _**Correction**_ : _le nom du paramètre `tab` est confus, je l'ai renommé en `fils` dans la correction. Il faudra leur
+    expliquer à quoi correspond ce tableau car ils vont sûrement avoir du mal. Pour l'an prochain on donnera un autre nom._
+
+<!--
+3. Testez en écrivant un test unitaire qui crée 3 taquins `t1`, `t2`, `t3`, puis un `Couple` contenant le chaînage
 `null` &leftarrow; `t1` &leftarrow; `t2` &leftarrow; `t3` (`t1` joue donc le rôle de la racine), et qui vérifie que 
 `getListeDeMouvements()` appelé sur ce couple retourne le bon résultat.
   
@@ -166,20 +179,21 @@ ainsi que le couple `(t,coupleGauche)` à `frontiere`, et ne rien faire pour le 
    qu'il faudra utiliser plusieurs fois. Commencez par créer le couple `c = Couple(t1, null)`, puis servez-vous de `c`
    pour construire les autres couples.
 
+-->
 ### Exercice 3
 
-La classe `Contexte` va encapsuler l'algorithme général de résolution du jeu. Complétez cette classe comme suit :
+La classe `Contexte` va encapsuler l'algorithme général de résolution du jeu. 
+L'attribut `Taquin taquin` servira à stocker le `Taquin` initial donné à l'objet `Contexte`, et l'attribut `solution` de type `ArrayList<Taquin>`
+servira à stocker la _trace_ des mouvements valides que l'algorithme a effectué depuis la position donnée par l'utilisateur afin d'obtenir une position gagnante,
+ou null si le taquin n'a pas de solution. 
 
-1. Ajoutez un attribut `Taquin taquin` (qui servira à stocker le `Taquin` initial donné à l'objet `Contexte`), et un
-attribut `solution` de type `ArrayList<Taquin>`. L'attribut `solution`  servira à stocker la _trace_ des mouvements
-valides que l'algorithme a effectués depuis la position donnée par l'utilisateur, afin d'obtenir une position gagnante. 
 
-2. Ajoutez un constructeur `Contexte (Taquin taquin)`.
+1. Complétez la méthode `public void resoudre()` afin qu'elle affecte à l'attribut `solution` une `ArrayList<Taquin>` vide
+si `taquin` n’est pas faisable, ou la liste des positions successives qui mènent à un état gagnant sinon.
 
-3. Complétez la méthode `public void resoudre()` afin qu'elle affecte à l'attribut `solution` une `ArrayList<Taquin>` vide
-si `taquin` n’est pas faisable, ou la liste des positions successives qui mènent à un état gagnant sinon. 
+    _**Correction**_ : _Normalement, dans cette méthode on a besoin d'un accesseur pour l'attribut`taquin` de la classe `Couple`. Donc on pourra l'indiquer aux étudiants à l'oral. L'an prochain on pourra l'ajouter explicitement dans le texte de l'exercice 2._
 
-3. Dans votre méthode `resoudre()`, il y a plusieurs façons de gérer votre frontière :
+2. Dans votre méthode `resoudre()`, il y a plusieurs façons de gérer votre frontière :
    * comme une _pile_ : le taquin extrait à chaque nouvelle étape est le dernier taquin a avoir été ajouté. Dans ce cas
    l'exploration de l'arbre se fera en profondeur (c'est-à-dire que l'on termine complètement une branche avant de
    passer à la suivante).
@@ -190,9 +204,9 @@ si `taquin` n’est pas faisable, ou la liste des positions successives qui mèn
    Regardez dans votre code de la question précédente si votre frontière est gérée en _pile_ ou en _file_, et réfléchissez
    à la politique de gestion (_pile_ vs _file_) que vous préférez.
 
-4. Redéfinissez la méthode `toString()` afin d'afficher la solution.
+3. Redéfinissez la méthode `toString()` afin d'afficher la solution.
 
-5. Testez d'abord avec des taquins que l'on peut résoudre. Pour cela, créez un taquin à distance 1 de la position 
+4. Testez d'abord avec des taquins que l'on peut résoudre. Pour cela, créez un taquin à distance 1 de la position 
 gagnante (c'est-à-dire nécessitant un mouvement pour le résoudre), puis à distance 2, puis à distance _k_ > 2.
 Ensuite, testez avec un taquin quelconque. Si votre algorithme s’exécute pendant plusieurs minutes, comment essayer de
 savoir s'il est dans une boucle infinie ou si "quelque chose" progresse ? Quelle(s) donnée(s) pourriez vous afficher
@@ -215,9 +229,14 @@ historique du programme écrit précédemment, nous allons travailler dans un pa
 2. Observez que les fonctions "essentielles" de la classe `Taquin` sont suffisamment générales pour être appliquées sur
  d'autres jeux de même nature. Ajoutez donc au package `fr.umontpellier.iut.exo4` une interface `JeuPuzzle` avec les
  méthodes en question.
- 
+
 3. Faites en sorte que Taquin soit une implémentation de l'interface  `JeuPuzzle`  et modifiez votre programme pour
 que cela ait du sens et fonctionne.
+ 
+   _**Correction**_ : _Pour les questions 2-3 on leur fait faire à la main d'abord, et ensuite on peut utiliser l'IDE qui fera l'extraction de l'interface tout seul. Pour ça :
+   clic droit sur le nom de la classe `Taquin` &rightarrow; Refactor &rightarrow; Extract &rightarrow; Interface...
+   On peut montrer la manipulation aux étudiants en projetant sur l'écran si on voit qu'ils ont des difficultés._
+
  
 Nous allons maintenant utiliser cette interface pour implémenter un autre jeu : [les tours de Hanoï](https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF).
 Dans ce jeu on considère 3 poteaux (dénommés "1" (à gauche), "2" (au milieu), et "3" (à droite)), ainsi que N disques
@@ -244,8 +263,11 @@ On constate (avec joie !) qu'il n'y a pas à modifier l'algorithme de résolutio
 pour tout `JeuPuzzle`.
 
 6. Dessinez le diagramme de classes de cet exercice.
+ 
+   _**Correction**_ : ![](ressources/DiagrammeClasses.png)
+
 
 **Remarque** : Cette façon de programmer, en proposant une interface d'algorithme générale qui sera ensuite implémentée
 différemment, et dont les implémentations pourront être interchangées "à la volée" par l'utilisateur dans la classe cliente
 (ici `App`), fait référence au modèle de conception communément appelé
-[_Stratégie_](https://en.wikipedia.org/wiki/Strategy_pattern). 
+[_Stratégie_](https://en.wikipedia.org/wiki/Strategy_pattern).
