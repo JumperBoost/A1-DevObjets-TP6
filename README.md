@@ -219,7 +219,7 @@ savoir s'il est dans une boucle infinie ou si "quelque chose" progresse ? Quelle
 Maintenant nous allons généraliser cette stratégie à la résolution d'autres jeux de type "puzzle". Afin de garder un
 historique du programme écrit précédemment, nous allons travailler dans un package différent.
 
-1. Créez un nouveau package `fr.umontpellier.iut.partie2` et copiez/collez les 3 classes écrites précédemment. Pour faire
+1. Dans le package `fr.umontpellier.iut.partie2`, copiez/collez les 3 classes écrites précédemment. Pour faire
  cela correctement, la manière la plus simple est de sélectionner **en même temps** les 3 classes dans l'IDE
  &rightarrow; _Copier_  &rightarrow; _Coller_ dans le package. Quelque soit la manière dont vous allez procéder, l'IDE
  vous signalera des duplications de code (logique, car c'est ce qui vous avez fait), mais _dans ce cas_ (et pour
@@ -228,8 +228,7 @@ historique du programme écrit précédemment, nous allons travailler dans un pa
  exercices précédents.
 
 2. Observez que les fonctions "essentielles" de la classe `Taquin` sont suffisamment générales pour être appliquées sur
- d'autres jeux de même nature. Ajoutez donc au package `fr.umontpellier.iut.partie2` une interface `JeuPuzzle` avec les
- méthodes en question.
+ d'autres jeux de même nature. Ajoutez donc dans l'interface `JeuPuzzle` les  méthodes en question.
 
 3. Faites en sorte que Taquin soit une implémentation de l'interface  `JeuPuzzle`  et modifiez votre programme pour
 que cela ait du sens et fonctionne.
@@ -254,7 +253,8 @@ _1 &rightarrow; 2_, _1 &rightarrow; 2_ ne l'est pas.
 du jeu, on suggère d'utiliser trois `ArrayList<Integer>` contenant chacune les numéros des disques présents sur le poteau
 correspondant. Vous pouvez également ajouter un attribut `private int taille` pour indiquer le nombre initial de disques.
 Une configuration du jeu correspondrait aux 3 poteaux contenant en tout les N disques. Chaque mouvement de disque
-autorisé d'un poteau vers un autre est une nouvelle configuration (nouveau fils donc). 
+autorisé d'un poteau vers un autre est une nouvelle configuration (nouveau fils donc). Veillez à implémenter 
+les 2 constructeurs demandés, ainsi qu'une méthode equals.
  
 5. Modifiez la classe principale pour maintenant tester la résolution de Hanoï (commencez par 3 disques sur le poteau gauche).
 On constate (avec joie !) qu'il n'y a pas à modifier l'algorithme de résolution puisqu'il fonctionne de façon "transparente"
