@@ -251,7 +251,7 @@ _1 &rightarrow; 2_, _1 &rightarrow; 2_ ne l'est pas.
 
 4. Écrivez une classe `Hanoi` qui modélise ce jeu et qui implémente l'interface `JeuPuzzle`. Pour modéliser l'état
 du jeu, on suggère d'utiliser trois `ArrayList<Integer>` contenant chacune les numéros des disques présents sur le poteau
-correspondant. Vous pouvez également ajouter un attribut `private int taille` pour indiquer le nombre initial de disques.
+correspondant. Vous pouvez également ajouter un attribut `private int taille` pour indiquer le nombre de disques.
 Une configuration du jeu correspondrait aux 3 poteaux contenant en tout les N disques. Chaque mouvement de disque
 autorisé d'un poteau vers un autre est une nouvelle configuration (nouveau fils donc). Veillez à implémenter 
 les 2 constructeurs demandés, ainsi qu'une méthode equals.
