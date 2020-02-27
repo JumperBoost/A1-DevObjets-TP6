@@ -122,21 +122,21 @@ de la façon suivante :
    * __hypothèse__ : le couple courant (`this`) représente une solution ayant été atteinte depuis la racine de l’arbre
    d’exploration (on a donc un chaînage du type 
    `null` &leftarrow; _couple_racine_ &leftarrow; _couple_1_ &leftarrow; ... &leftarrow; _couple_k_ &leftarrow; _couple_courant_)
-   * __effet__ : retourne une  `ArrayList<Taquin>` de la forme `[couple_racine.jeuPuzzle, couple_1.jeuPuzzle,..,couple_k.jeuPuzzle, couple_courant.jeuPuzzle]`,
+   * __effet__ : retourne une  `ArrayList<Taquin>` de la forme `[couple_racine.taquin, couple_1.taquin,..,couple_k.taquin, couple_courant.taquin]`,
    qui correspond donc à la description de la solution trouvée
    
-2. Complétez la méthode `public static void mettreAJour(Couple c, ArrayList<Couple> frontiere, ArrayList<Taquin> tab, ArrayList<Taquin> dejaVus)`
+2. Complétez la méthode `public static void mettreAJour(Couple c, ArrayList<Couple> frontiere, ArrayList<Taquin> fils, ArrayList<Taquin> dejaVus)`
 pour qu'elle respecte la spécification ci-dessous. Avant de lire cette spécification, considérons l'exemple dans lequel 
    * `c` représente le couple dont le taquin est celui de gauche dans la frontière _b)_ de l'exemple
    ci-dessus (et son prédécesseur pointe sur la racine)  
    * `frontiere` est l'ensemble de `Couple` dont les taquins sont ceux de _b)_ 
-   * `tab` est l'ensemble des 2 taquins fils du taquin contenu dans `c` (`* 1 2 3 4` et `1 2 * 3 4`)
+   * `fils` est l'ensemble des deux taquins fils du taquin contenu dans `c` (`* 1 2 3 4` et `1 2 * 3 4`)
    * `dejaVus` est l'ensemble des 3 taquins de _a)_ U _b)_.
     
-   Dans cet exemple, `Couple.mettreAJour(c,frontiere,tab,dejaVus)` doit ajouter le taquin `t = * 1 2 3 4` à `dejaVus`
+   Dans cet exemple, `Couple.mettreAJour(c,frontiere,fils,dejaVus)` doit ajouter le taquin `t = * 1 2 3 4` à `dejaVus`
 ainsi que le couple `(t,c)` à `frontiere`, et ne rien faire pour le taquin `1 2 * 3 4` puisqu'il est déjà dans `dejaVus`.
 
-   La spécification est donc la suivante : `mettreAJour` ajoute à `frontiere` (et à `dejaVus`) tous les couples `(t,c)` avec `t` appartenant à `tab`, et tels que `t` n’est pas dans `dejaVus`.
+   La spécification est donc la suivante : `mettreAJour(...)` ajoute à `frontiere` (et à `dejaVus`) tous les couples `(t,c)` avec `t` appartenant à `fils`, et tels que `t` n’est pas dans `dejaVus`.
 
    **Remarque :** Ici nous vous recommandons d'utiliser entre autres la méthode `boolean contains(o)` définie dans
    `ArrayList` qui renvoie vrai si `o` appartient à l'objet `ArrayList`. Expliquez pourquoi ce test d'appartenance
@@ -166,14 +166,14 @@ ainsi que le couple `(t,c)` à `frontiere`, et ne rien faire pour le taquin `1 2
 La classe `Contexte` va encapsuler l'algorithme général de résolution du jeu. 
 L'attribut `Taquin taquin` servira à stocker le `Taquin` initial donné à l'objet `Contexte`, et l'attribut `solution` de type `ArrayList<Taquin>`
 servira à stocker la _trace_ des mouvements valides que l'algorithme a effectué depuis la position donnée par l'utilisateur afin d'obtenir une position gagnante,
-ou null si le taquin n'a pas de solution. 
+ou `null` si le taquin n'a pas de solution.
 
 
 1. Complétez la méthode `public void resoudre()` afin qu'elle affecte à l'attribut `solution` une `ArrayList<Taquin>` vide
 si `taquin` n’est pas faisable, ou la liste des positions successives qui mènent à un état gagnant sinon.
 
 2. Dans votre méthode `resoudre()`, il y a plusieurs façons de gérer votre frontière :
-   * comme une _pile_ : le taquin extrait à chaque nouvelle étape est le dernier taquin a avoir été ajouté. Dans ce cas
+   * comme une _pile_ : le taquin extrait à chaque nouvelle étape est le dernier taquin à avoir été ajouté. Dans ce cas
    l'exploration de l'arbre se fera en profondeur (c'est-à-dire que l'on termine complètement une branche avant de
    passer à la suivante).
    * comme une _file_ : le taquin extrait à chaque nouvelle étape est le premier a avoir été ajouté. Dans ce cas
@@ -205,13 +205,10 @@ historique du programme écrit précédemment, nous allons travailler dans un pa
  allez ignorer ces avertissements car c'est un moyen simple de garder une copie de ce que vous avez fait dans les
  exercices précédents.
 
-2. Observez que les fonctions "essentielles" de la classe `Taquin` sont suffisamment générales pour être appliquées sur
- d'autres jeux de même nature. Ajoutez donc dans l'interface `JeuPuzzle` les  méthodes en question.
+2. Observez que les fonctions "essentielles" de la classe `Taquin` sont suffisamment générales pour être appliquées sur d'autres jeux de même nature. Ajoutez donc dans l'interface `JeuPuzzle` les  méthodes en question.
 
-3. Faites en sorte que Taquin soit une implémentation de l'interface  `JeuPuzzle`  et modifiez votre programme pour
-que cela ait du sens et fonctionne.
+3. Faites en sorte que `Taquin` soit une implémentation de l'interface  `JeuPuzzle`  et modifiez votre programme pour que cela ait du sens et fonctionne.
  
-  
  
 Nous allons maintenant utiliser cette interface pour implémenter un autre jeu : [les tours de Hanoï](https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF).
 Dans ce jeu on considère 3 poteaux (dénommés "1" (à gauche), "2" (au milieu), et "3" (à droite)), ainsi que N disques
@@ -227,18 +224,17 @@ Par exemple, pour N=3 la succession de coups _1 &rightarrow; 2_ (signifiant pren
 le placer au sommet du poteau 2) _1 &rightarrow; 3_, _2 &rightarrow; 3_ est légale, alors que la succession de coups
 _1 &rightarrow; 2_, _1 &rightarrow; 2_ ne l'est pas.
 
-4. Écrivez une classe `Hanoi` qui modélise ce jeu et qui implémente l'interface `JeuPuzzle`. Pour modéliser l'état
-du jeu, on suggère d'utiliser trois `ArrayList<Integer>` contenant chacune les numéros des disques présents sur le poteau
-correspondant. Vous pouvez également ajouter un attribut `private int taille` pour indiquer le nombre de disques.
-Une configuration du jeu correspondrait aux 3 poteaux contenant en tout les N disques. Chaque mouvement de disque
-autorisé d'un poteau vers un autre est une nouvelle configuration (nouveau fils donc). Veillez à implémenter 
-les 2 constructeurs demandés, ainsi qu'une méthode equals.
+4. Complétez la classe `Hanoi` qui modélise ce jeu et qui doit implémenter l'interface `JeuPuzzle`. Pour modéliser l'état
+   du jeu, on suggère d'utiliser trois `ArrayList<Integer>` contenant chacune les numéros des disques présents sur le poteau
+   correspondant. Vous pouvez également ajouter un attribut `private int taille` pour indiquer le nombre de disques.
+   Une configuration du jeu correspondrait aux 3 poteaux contenant en tout les N disques. Chaque mouvement de disque
+   autorisé d'un poteau vers un autre est une nouvelle configuration (nouveau fils donc). 
  
 5. Modifiez la classe principale pour maintenant tester la résolution de Hanoï (commencez par 3 disques sur le poteau gauche).
 On constate (avec joie !) qu'il n'y a pas à modifier l'algorithme de résolution puisqu'il fonctionne de façon "transparente"
 pour tout `JeuPuzzle`.
 
-6. Dessinez le diagramme de classes de cette partie.
+6. Dessinez le diagramme de classes de cette partie du sujet. Vous y indiquerez toutes les classes du package `fr.umontpellier.iut.partie2`.
  
    
 
