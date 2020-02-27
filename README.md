@@ -121,7 +121,7 @@ de la façon suivante :
 
    * __hypothèse__ : le couple courant (`this`) représente une solution ayant été atteinte depuis la racine de l’arbre
    d’exploration (on a donc un chaînage du type 
-   `null` &leftarrow; _couple_racine_ &leftarrow; _couple_1_ &leftarrow; ... &leftarrow; _couple_k_ &leftarrow; _couple courant_)
+   `null` &leftarrow; _couple_racine_ &leftarrow; _couple_1_ &leftarrow; ... &leftarrow; _couple_k_ &leftarrow; _couple_courant_)
    * __effet__ : retourne une  `ArrayList<Taquin>` de la forme `[couple_racine.jeuPuzzle, couple_1.jeuPuzzle,..,couple_k.jeuPuzzle, couple_courant.jeuPuzzle]`,
    qui correspond donc à la description de la solution trouvée
    

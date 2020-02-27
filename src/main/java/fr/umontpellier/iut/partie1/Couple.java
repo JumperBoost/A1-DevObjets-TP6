@@ -11,11 +11,12 @@ public class Couple {
         this.jeuPuzzle = jeuPuzzle;
         this.predecesseur = predecesseur;
     }
-    public ArrayList<Taquin> getListeDeMouvements() {
+
+    public static void mettreAJour(Couple c, ArrayList<Couple> frontiere, ArrayList<Taquin> tab, ArrayList<Taquin> dejaVus) {
         throw new RuntimeException("Méthode non-implémentée");
     }
 
-    public static void mettreAJour(Couple c, ArrayList<Couple> frontiere, ArrayList<Taquin> tab, ArrayList<Taquin> dejaVus) {
+    public ArrayList<Taquin> getListeDeMouvements() {
         throw new RuntimeException("Méthode non-implémentée");
     }
 

@@ -11,6 +11,7 @@ public class Contexte {
         this.Taquin = Taquin;
         solution = new ArrayList<>();
     }
+
     public void resoudre() {
         throw new RuntimeException("Méthode non-implémentée");
     }

@@ -6,8 +6,8 @@ public class Taquin {
     private int[][] t;
 
     public Taquin(int[][] tableau) {
-    }    
-    
+    }
+
     public boolean estGagnant() {
         throw new RuntimeException("Méthode non-implémentée");
     }
@@ -17,7 +17,7 @@ public class Taquin {
     }
 
     public int[] trouverTrou() {
-	//return [i,j] tq t[i][j]==0;
+        //return [i,j] tq t[i][j]==0;
         throw new RuntimeException("Méthode non-implémentée");
     }
 
