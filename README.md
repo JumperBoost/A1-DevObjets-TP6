@@ -72,7 +72,7 @@ un utilisateur, afin de voir la stratégie à adopter pour résoudre le puzzle �
 le "_père_" de `c2` est `c1`. Un maillon de cette liste chaînée est donc un couple (_configuration taquin, couple parent_).
 
 Dans tout le TP, nous vous invitons à vérifier au fur et à mesure que votre code est correct.
-Pour cela utilisez les tests fournis (pour certaines questions seulement), et pensez à en ajouter d'autres, et à écrire un main.
+Pour cela utilisez les tests fournis (pour certaines questions seulement), et pensez à en écrire d'autres. Également pensez à compléter la méthode `main(String args[])` des classes principales (`fr.umontpellier.iut.partie1.App` et `fr.umontpellier.iut.partie1.AppJeuxPuzzle`).
 
 ### Partie 1
 #### Exercice 1
@@ -87,14 +87,13 @@ et la case [2][2] en bas à droite.
 3. Complétez la méthode `public boolean estGagnant()` afin qu'elle retourne _vrai_ si le plateau est dans une
 configuration gagnante et _faux_ sinon. Pour un taquin en deux dimensions, la position gagnante est la configuration :
 
-```
-+-----+
-|1 2 3|
-|4 5 6|
-|7 8 0|
-+-----+
-```
-
+    ```
+    +-----+
+    |1 2 3|
+    |4 5 6|
+    |7 8 0|
+    +-----+
+    ```
 
 4. Redéfinissez la méthode `equals(Object o)` de la classe `Object` afin qu'elle permette de comparer le `Taquin` courant
 avec un autre passé en paramètre.
@@ -105,19 +104,16 @@ avec un autre passé en paramètre.
     va être faite. Discutez-en également avec votre enseignant (voir également le
     [cours](http://pageperso.lis-lab.fr/~petru.valicov/Cours/M2103/BPOO_Heritage_Polymorphisme_x4.pdf)).
     
-
-      
-
-5. Complétez la méthode  `public int[] trouverTrou()` (voir la spécification dans le code), puis la méthode `public ArrayList<Taquin> genererFils()` qui retourne la liste des objets `Taquin` que l’on
-peut obtenir en faisant un mouvement valide. Attention, cette méthode ne doit pas modifier `this`, et les taquins retournés dans la liste doivent être "indépendants" de `this` (c'est-à-dire avoir leur propre tableau d'entiers comme plateau). Pour genererFils, on peut suivre la stratégie suivante : commencer par trouver les coordonnées du trou.
+5. Complétez la méthode  `public int[] trouverTrou()` (voir la spécification dans le code), puis la méthode `public ArrayList<Taquin> genererFils()`. Cette dernière retourne la liste des objets `Taquin` que l’on
+peut obtenir en faisant un mouvement valide. Attention, cette méthode ne doit pas modifier `this`, et les taquins retournés dans la liste doivent être "indépendants" de `this` (c'est-à-dire avoir leur propre tableau d'entiers comme plateau). Pour `genererFils()`, on peut suivre la stratégie suivante : commencer par trouver les coordonnées du trou.
 Si le trou n'est pas collé à gauche, alors on peut générer le fils dans lequel le trou est déplacé à gauche.
-Si le trou n'est pas collé à droite, alors ... etc. 
+Si le trou n'est pas collé à droite, alors... etc. 
 
 
 #### Exercice 2
 
 Rappelez-vous que nous aurons besoin de "couples chaînés" pour pouvoir retrouver la suite des coups effectués lorsque
-l’algorithme trouve une position gagnante. C'est pour cela que la classe `Couple`vous est donnée. Complétez cette classe
+l’algorithme trouve une position gagnante. C'est pour cela que la classe `Couple` vous est donnée. Complétez cette classe
 de la façon suivante :
    
 
@@ -242,7 +238,7 @@ les 2 constructeurs demandés, ainsi qu'une méthode equals.
 On constate (avec joie !) qu'il n'y a pas à modifier l'algorithme de résolution puisqu'il fonctionne de façon "transparente"
 pour tout `JeuPuzzle`.
 
-6. Dessinez le diagramme de classes de cet exercice.
+6. Dessinez le diagramme de classes de cette partie.
  
    
 
