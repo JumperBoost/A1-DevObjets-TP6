@@ -19,8 +19,9 @@ Avant de démarrer le TP, vérifiez que vous n'avez pas atteint votre quota d'es
 
 
 ### Consignes
-- Vous respecterez toutes les [consignes](https://github.com/IUTInfoMontp-M2103/TP4#consignes) indiquées dans le TP4
-- Vous essaierez de respecter au maximum les [consignes](https://github.com/IUTInfoMontp-M2103/TP5#consignes) indiquées dans le TP5
+- Vous respecterez toutes les [consignes](https://github.com/IUTInfoMontp-M2103/TP4#consignes) indiquées dans le TP4.
+- Vous essaierez de respecter au maximum les [consignes](https://github.com/IUTInfoMontp-M2103/TP5#consignes) indiquées dans le TP5.
+- Des commentaires sont données dans le code qui vous est fourni afin de vous aider à comprendre ce que vous êtes censés de programmer.
 
 
 
@@ -29,16 +30,14 @@ Avant de démarrer le TP, vérifiez que vous n'avez pas atteint votre quota d'es
 
 Cliquez sur le lien ci-dessous pour faire votre fork privé du TP (**attention, pas de fork à la main !**):
 
-Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche à *** 23h00**
+Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche à 15 mars 23h00**
 
-L’objectif de ce TP est d’écrire un algorithme qui résout par exploration totale n’importe quel "puzzle". Nous allons
+L’objectif de ce TP est d’écrire un algorithme qui résout par exploration totale n’importe quel "puzzle". Avant de commencer le travail, nous allons
 illustrer cet algorithme sur un puzzle très simple : un [taquin](https://fr.wikipedia.org/wiki/Taquin) en une dimension.
-Puis, vous implémenterez dans les Exercices [1](https://github.com/IUTInfoMontp-M2103/TP6#exercice-1),
-[2](https://github.com/IUTInfoMontp-M2103/TP6#exercice-2) et
-[3](https://github.com/IUTInfoMontp-M2103/TP6#exercice-3) cet algorithme sur un taquin en deux dimensions.
-Enfin, vous généraliserez cet algorithme à n’importe quel puzzle dans l'[Exercice 4](https://github.com/IUTInfoMontp-M2103/TP6#exercice-4).
+Puis, vous implémenterez dans la [Partie 1](https://github.com/IUTInfoMontp-M2103/TP6#partie-1) cet algorithme sur un taquin en deux dimensions.
+Enfin, vous généraliserez cet algorithme à n’importe quel puzzle dans la [Partie 2](https://github.com/IUTInfoMontp-M2103/TP6#partie-2).
 
-Reprenons l’exemple d’un taquin en une dimension à 5 cases. La position initiale (notée `1 2 * 3 4` ) du taquin est
+Prenons l’exemple d’un taquin en une dimension à 5 cases. La position initiale (notée `1 2 * 3 4` ) du taquin est
 dessinée en haut de la figure ci-dessous :
 
 ![](ressources/fig_taquin.png)
@@ -104,14 +103,8 @@ avec un autre passé en paramètre.
     comprendre le code qu'il vous générera. Vous ajusterez cette redéfinition, en fonction de la logique du code de votre
     classe `Taquin`. Prêtez également attention à la redéfinition de la méthode `public int hashCode()` de `Object` qui
     va être faite. Discutez-en également avec votre enseignant (voir également le
-    [cours](http://pageperso.lif.univ-mrs.fr/~petru.valicov/Cours/M2103/BPOO_Heritage_Polymorphisme_x4.pdf)).
+    [cours](http://pageperso.lis-lab.fr/~petru.valicov/Cours/M2103/BPOO_Heritage_Polymorphisme_x4.pdf)).
     
-    _**Correction**_ : _Ici il faudra leur rappeler que `hashCode()` et `equals(Object o)` sont très liés et doivent être
-   redéfinies en même temps pour respecter le contrat imposé par la classe `Object`. Notamment l'entier retourné par
-   `hashCode()` doit toujours être le même pour deux objets pour lesquels `equals(Object o)` renvoie `true`. Il y a aussi
-   un problème avec les tableaux à plusieurs de dimensions : dans ce cas le moyen le plus simple c'est d'utiliser les
-   méthodes statiques `Arrays.deepEquals(Object o)` et `Arrays.deepHashCode()` conçues pour les tableaux multidimensionnels.
-   Plus de documentation sur la doc de l'API : https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#hashCode--_
 
       
 
@@ -119,13 +112,6 @@ avec un autre passé en paramètre.
 peut obtenir en faisant un mouvement valide. Attention, cette méthode ne doit pas modifier `this`, et les taquins retournés dans la liste doivent être "indépendants" de `this` (c'est-à-dire avoir leur propre tableau d'entiers comme plateau). Pour genererFils, on peut suivre la stratégie suivante : commencer par trouver les coordonnées du trou.
 Si le trou n'est pas collé à gauche, alors on peut générer le fils dans lequel le trou est déplacé à gauche.
 Si le trou n'est pas collé à droite, alors ... etc. 
-    
-    _**Correction**_ : _Ici, les étudiants devraient se rendre compte qu'il leur faut maintenant un constructeur
-    `Taquin(int[][] plateau)` pour pouvoir créer de nouveaux objets `Taquin` facilement. Également, il faudrait leur
-    rappeler que les tableaux sont des types objets et donc il faut faire des "vraies" copies de tableau pour chaque
-    nouveau objet `Taquin`._
-
- 
 
 
 #### Exercice 2
@@ -160,8 +146,6 @@ ainsi que le couple `(t,c)` à `frontiere`, et ne rien faire pour le taquin `1 2
    `ArrayList` qui renvoie vrai si `o` appartient à l'objet `ArrayList`. Expliquez pourquoi ce test d'appartenance
    fonctionnera correctement si on l'invoque sur un objet `ArrayList<Taquin>`.
    
-    _**Correction**_ : _le nom du paramètre `tab` est confus, je l'ai renommé en `fils` dans la correction. Il faudra leur
-    expliquer à quoi correspond ce tableau car ils vont sûrement avoir du mal. Pour l'an prochain on donnera un autre nom._
 
 <!--
 3. Testez en écrivant un test unitaire qui crée 3 taquins `t1`, `t2`, `t3`, puis un `Couple` contenant le chaînage
@@ -191,8 +175,6 @@ ou null si le taquin n'a pas de solution.
 
 1. Complétez la méthode `public void resoudre()` afin qu'elle affecte à l'attribut `solution` une `ArrayList<Taquin>` vide
 si `taquin` n’est pas faisable, ou la liste des positions successives qui mènent à un état gagnant sinon.
-
-    _**Correction**_ : _Normalement, dans cette méthode on a besoin d'un accesseur pour l'attribut`taquin` de la classe `Couple`. Donc on pourra l'indiquer aux étudiants à l'oral. L'an prochain on pourra l'ajouter explicitement dans le texte de l'exercice 2._
 
 2. Dans votre méthode `resoudre()`, il y a plusieurs façons de gérer votre frontière :
    * comme une _pile_ : le taquin extrait à chaque nouvelle étape est le dernier taquin a avoir été ajouté. Dans ce cas
