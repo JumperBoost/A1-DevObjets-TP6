@@ -17,7 +17,6 @@ public class Taquin {
     }
 
     public int[] trouverTrou() {
-        //return [i,j] tq t[i][j]==0;
         throw new RuntimeException("Méthode non-implémentée");
     }
 

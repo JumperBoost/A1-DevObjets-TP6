@@ -78,7 +78,7 @@ Pour cela utilisez les tests fournis (pour certaines questions seulement), et pe
 #### Exercice 1
 La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut`. Vous devez la compléter comme suit :
 
-1. Complétez le constructeur de taquin prenant en paramètre un int[][] (le trou du plateau est représenté par le chiffre `0`). 
+1. Complétez le constructeur de `Taquin` prenant en paramètre un `int[][]` (le trou du plateau est représenté par le chiffre `0`). 
 
 1. Redéfinissez la méthode `toString()` (de la classe `Object`) afin d'afficher le contenu du plateau de `Taquin`.
 L'orientation imposée est la suivante : la case [0][0] est en haut à gauche,
