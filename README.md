@@ -34,7 +34,7 @@ Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche à 15 mars
 
 L’objectif de ce TP est d’écrire un algorithme qui résout par exploration totale n’importe quel "puzzle". Avant de commencer le travail, nous allons
 illustrer cet algorithme sur un puzzle très simple : un [taquin](https://fr.wikipedia.org/wiki/Taquin) en une dimension.
-Puis, vous implémenterez dans la [Partie 1](https://github.com/IUTInfoMontp-M2103/TP6#partie-1) cet algorithme sur un taquin en deux dimensions.
+Puis, vous implémenterez dans la [Partie 1](https://github.com/IUTInfoMontp-M2103/TP6#partie-1) cet algorithme sur un taquin **en deux dimensions**.
 Enfin, vous généraliserez cet algorithme à n’importe quel puzzle dans la [Partie 2](https://github.com/IUTInfoMontp-M2103/TP6#partie-2).
 
 Prenons l’exemple d’un taquin en une dimension à 5 cases. La position initiale (notée `1 2 * 3 4` ) du taquin est
@@ -78,14 +78,14 @@ Pour cela utilisez les tests fournis (pour certaines questions seulement), et pe
 #### Exercice 1
 La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut`. Vous devez la compléter comme suit :
 
-1. Complétez le constructeur de `Taquin` prenant en paramètre un `int[][]` (le trou du plateau est représenté par le chiffre `0`). 
+1. Complétez le constructeur de `Taquin` prenant en paramètre un `int[][]`. On supposera que le trou du plateau est représenté par le chiffre `0` et que la première dimension (resp. deuxième dimension) du tableau représente la ligne (reps. colonne). Dans l'exemple ci-dessous, la case [1][3] contient le chiffre 3.
 
 1. Redéfinissez la méthode `toString()` (de la classe `Object`) afin d'afficher le contenu du plateau de `Taquin`.
 L'orientation imposée est la suivante : la case [0][0] est en haut à gauche,
 et la case [2][2] en bas à droite.
 
 3. Complétez la méthode `public boolean estGagnant()` afin qu'elle retourne _vrai_ si le plateau est dans une
-configuration gagnante et _faux_ sinon. Pour un taquin en deux dimensions, la position gagnante est la configuration :
+   configuration gagnante et _faux_ sinon. Pour un taquin en deux dimension avec 3 lignes et 3 colonnes (taquin 3 X 3), la position gagnante est la configuration :
 
     ```
     +-----+
