@@ -133,22 +133,22 @@ de la façon suivante :
    * __effet__ : retourne une  `ArrayList<Taquin>` de la forme `[couple_racine.taquin, couple_1.taquin,..,couple_k.taquin, couple_courant.taquin]`,
    qui correspond donc à la description de la solution trouvée
    
-2. Complétez la méthode `public static void mettreAJour(Couple c, ArrayList<Couple> frontiere, ArrayList<Taquin> fils, ArrayList<Taquin> dejaVus)`
-pour qu'elle respecte la spécification ci-dessous. Avant de lire cette spécification, considérons l'exemple dans lequel 
-   * `c` représente le couple dont le taquin est celui de gauche dans la frontière _b)_ de l'exemple
-   ci-dessus (et son prédécesseur pointe sur la racine)  
-   * `frontiere` est l'ensemble de `Couple` dont les taquins sont ceux de _b)_ 
-   * `fils` est l'ensemble des deux taquins fils du taquin contenu dans `c` (`* 1 2 3 4` et `1 2 * 3 4`)
-   * `dejaVus` est l'ensemble des 3 taquins de _a)_ U _b)_.
-    
-   Dans cet exemple, `Couple.mettreAJour(c,frontiere,fils,dejaVus)` doit ajouter le taquin `t = * 1 2 3 4` à `dejaVus`
-ainsi que le couple `(t,c)` à `frontiere`, et ne rien faire pour le taquin `1 2 * 3 4` puisqu'il est déjà dans `dejaVus`.
-
-   La spécification est donc la suivante : `mettreAJour(...)` ajoute à `frontiere` (et à `dejaVus`) tous les couples `(t,c)` avec `t` appartenant à `fils`, et tels que `t` n’est pas dans `dejaVus`.
-
-   **Remarque :** Ici nous vous recommandons d'utiliser entre autres la méthode `boolean contains(o)` définie dans
-   `ArrayList` qui renvoie vrai si `o` appartient à l'objet `ArrayList`. Expliquez pourquoi ce test d'appartenance
-   fonctionnera correctement si on l'invoque sur un objet `ArrayList<Taquin>`.
+2. Complétez la méthode `public void mettreAJour(ArrayList<Couple> frontiere, ArrayList<Taquin> dejaVus)`
+   pour qu'elle respecte la spécification ci-dessous. Avant de lire cette spécification, considérons l'exemple dans lequel 
+      * `this` représente le couple dont le taquin est celui de gauche dans la frontière _b)_ de l'exemple
+      ci-dessus (et son prédécesseur pointe sur la racine)  
+      * `frontiere` est l'ensemble de `Couple` dont les taquins sont ceux de _b)_ 
+      * l'ensemble des taquins fils du taquin contenu dans `this` sont `* 1 2 3 4` et `1 2 * 3 4`
+      * `dejaVus` est l'ensemble des 3 taquins de _a)_ U _b)_.
+       
+      Dans cet exemple, `mettreAJour(frontiere,dejaVus)` doit ajouter le taquin `t = * 1 2 3 4` à `dejaVus`
+   ainsi que le couple `(t,this)` à `frontiere`, et ne rien faire pour le taquin `1 2 * 3 4` puisqu'il est déjà dans `dejaVus`.
+   
+      La spécification est donc la suivante : `mettreAJour(...)` ajoute à `frontiere` (et à `dejaVus`) tous les couples `(t,this)` avec `t` appartenant aux fils de `this`, et tels que `t` n’est pas dans `dejaVus`.
+   
+      **Remarque :** Ici nous vous recommandons d'utiliser entre autres la méthode `boolean contains(o)` définie dans
+      `ArrayList` qui renvoie vrai si `o` appartient à l'objet `ArrayList`. Expliquez pourquoi ce test d'appartenance
+      fonctionnera correctement si on l'invoque sur un objet `ArrayList<Taquin>`.
    
 
 #### Exercice 3
