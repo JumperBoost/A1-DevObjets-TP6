@@ -6,7 +6,7 @@
 * **Enseignants:** [Marin Bougeret](mailto:marin.bougeret@umontpellier.fr), [Sébastien Gagné](mailto:sebastien.gagne@umontpellier.fr), [Sophie Nabitz](mailto:sophie.nabitz@univ-avignon.fr), [Jérôme Palaysi](mailto:jerome.palaysi@umontpellier.fr), [Victor Poupet](mailto:victor.poupet@umontpellier.fr), [Petru Valicov](mailto:petru.valicov@umontpellier.fr)
 * Le [forum Piazza](https://piazza.com/class/k52c8w685w3210) de ce cours pour poser vos questions
 * [Email](mailto:petru.valicov@umontpellier.fr) pour une question d'ordre privée concernant le cours.
-* Le [sujet du TP](TP6.pdf) en format .pdf téléchargeable et imprimable.
+* Le [sujet du TP](https://pageperso.lis-lab.fr/~petru.valicov/Cours/M2103/TP6.pdf) en format .pdf téléchargeable et imprimable.
 
 Avant de démarrer le TP, vérifiez que vous n'avez pas atteint votre quota d'espace de stockage autorisé :
 
@@ -143,24 +143,6 @@ ainsi que le couple `(t,c)` à `frontiere`, et ne rien faire pour le taquin `1 2
    fonctionnera correctement si on l'invoque sur un objet `ArrayList<Taquin>`.
    
 
-<!--
-3. Testez en écrivant un test unitaire qui crée 3 taquins `t1`, `t2`, `t3`, puis un `Couple` contenant le chaînage
-`null` &leftarrow; `t1` &leftarrow; `t2` &leftarrow; `t3` (`t1` joue donc le rôle de la racine), et qui vérifie que 
-`getListeDeMouvements()` appelé sur ce couple retourne le bon résultat.
-  
-   **Astuce :**  On rappelle que pour créer une classe de tests unitaires, placez-vous dans la classe que vous souhaitez
-   tester (dans notre cas c'est `Couple`) et :
-    * appuyez sur <kbd>Alt</kbd>+<kbd>Insert</kbd> (ou bien faites un clic droit sur le nom de la classe &rightarrow;
-  _Generate_)
-   * Choisissez _Test..._
-   * dans l'onglet _Testing library_ vous choisirez l'option _JUnit 5_ 
-   * donnez un nom approprié à votre classe de tests unitaires (par ex. `CoupleTest`) et cliquez sur _Ok_.
-   
-   **Astuce :**  Pour créer ce `Couple`, on dispose seulement du constructeur `Couple(Taquin taquin, Couple predecesseur)`,
-   qu'il faudra utiliser plusieurs fois. Commencez par créer le couple `c = Couple(t1, null)`, puis servez-vous de `c`
-   pour construire les autres couples.
-
--->
 #### Exercice 3
 
 La classe `Contexte` va encapsuler l'algorithme général de résolution du jeu. 
@@ -202,7 +184,7 @@ historique du programme écrit précédemment, nous allons travailler dans un pa
  vous signalera des duplications de code (logique, car c'est ce qui vous avez fait), mais _dans ce cas_ (et pour
  _ce genre de duplications demandées_) vous
  allez ignorer ces avertissements car c'est un moyen simple de garder une copie de ce que vous avez fait dans les
- exercices précédents.
+ exercices précédents. Pour ce faire, vous pouvez ajouter l'annotation `@SuppressWarnings("Duplicates")` à la ligne juste avant la déclaration de la classe nouvellement copiée.
 
 2. Observez que les fonctions "essentielles" de la classe `Taquin` sont suffisamment générales pour être appliquées sur d'autres jeux de même nature. Ajoutez donc dans l'interface `JeuPuzzle` les  méthodes en question.
 
