@@ -42,6 +42,9 @@ dessinée en haut de la figure ci-dessous :
 
 ![](ressources/fig_taquin.png)
 
+**Figure 1 :** Arbre d'exploration des solutions d'une configuration de taquin à une dimension
+
+
 Le trou se trouve au milieu, avec les palets 1 et 2 à gauche, et 3 et 4 à droite. On considère que la position
 gagnante est `1 2 3 4 *`.
 Nous allons décrire informellement l’algorithme pour résoudre le taquin. Cet algorithme utilise deux variables :
@@ -133,8 +136,7 @@ de la façon suivante :
    * __effet__ : retourne une  `ArrayList<Taquin>` de la forme `[couple_racine.taquin, couple_1.taquin,..,couple_k.taquin, couple_courant.taquin]`,
    qui correspond donc à la description de la solution trouvée
    
-2. Complétez la méthode `public void mettreAJour(ArrayList<Couple> frontiere, ArrayList<Taquin> dejaVus)`
-   pour qu'elle respecte la spécification ci-dessous. Avant de lire cette spécification, considérons l'exemple dans lequel 
+2. Complétez la méthode `public void mettreAJour(ArrayList<Couple> frontiere, ArrayList<Taquin> dejaVus)` pour qu'elle respecte la spécification ci-dessous. Avant de lire cette spécification, considérons l'exemple la Figure 1 dans lequel 
       * `this` représente le couple dont le taquin est celui de gauche dans la frontière _b)_ de l'exemple
       ci-dessus (et son prédécesseur pointe sur la racine)  
       * `frontiere` est l'ensemble de `Couple` dont les taquins sont ceux de _b)_ 
