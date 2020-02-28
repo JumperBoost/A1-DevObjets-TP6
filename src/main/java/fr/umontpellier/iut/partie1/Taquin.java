@@ -6,6 +6,7 @@ public class Taquin {
     private int[][] tableau;
 
     public Taquin(int[][] tableau) {
+        this.tableau = tableau;
     }
 
     public boolean estGagnant() {

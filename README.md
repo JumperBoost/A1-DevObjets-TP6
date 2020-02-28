@@ -76,27 +76,35 @@ Pour cela utilisez les tests fournis (pour certaines questions seulement), et pe
 
 ### Partie 1
 #### Exercice 1
-La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut`. Vous devez la compléter comme suit :
+La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut.partie1`. Vous devez la compléter comme suit :
 
-1. Complétez le constructeur de `Taquin` prenant en paramètre un `int[][]`. On supposera que le trou du plateau est représenté par le chiffre `0` et que la première dimension (resp. deuxième dimension) du tableau représente la ligne (reps. colonne). Dans l'exemple ci-dessous, la case [1][3] contient le chiffre 3.
+1. L'attribut `tableau` représente le plateau du taquin en deux dimension. On supposera que le trou du plateau est représenté par le chiffre `0` et que la première dimension (resp. deuxième dimension) du tableau représente la ligne (resp. colonne). Dans l'exemple ci-dessous, la case [1][3] contient le chiffre 2 et la case [2][2] contient le chiffre 14 :
 
-1. Redéfinissez la méthode `toString()` (de la classe `Object`) afin d'afficher le contenu du plateau de `Taquin`.
-L'orientation imposée est la suivante : la case [0][0] est en haut à gauche,
-et la case [2][2] en bas à droite.
+    ```
+    +---------------+
+    | 1   4   3  12 |
+    |11   5  13   2 |
+    | 7  14   8   9 |
+    |10   6   0  15 |
+    +---------------+
+    ```
+2. Redéfinissez la méthode `toString()` dans la classe `Taquin` afin d'afficher le contenu de son plateau.
+Pour un taquin `n X n` l'orientation imposée est la suivante : la case [0][0] est en haut à gauche,
+et la case [n-1][n-1] est en bas à droite.
 
 3. Complétez la méthode `public boolean estGagnant()` afin qu'elle retourne _vrai_ si le plateau est dans une
-   configuration gagnante et _faux_ sinon. Pour un taquin en deux dimension avec 3 lignes et 3 colonnes (taquin 3 X 3), la position gagnante est la configuration :
+   configuration gagnante et _faux_ sinon. Voici les configurations gagnantes pour des taquins `3 X 3` et `4 X 4`:
 
     ```
-    +-----+
-    |1 2 3|
-    |4 5 6|
-    |7 8 0|
-    +-----+
+    +-----+    +---------------+
+    |1 2 3|    | 1   2   3   4 |
+    |4 5 6|    | 5   6   7   8 |
+    |7 8 0|    | 9  10  11  12 |
+    +-----+    |13  14  15   0 |
+               +---------------+
     ```
 
-4. Redéfinissez la méthode `equals(Object o)` de la classe `Object` afin qu'elle permette de comparer le `Taquin` courant
-avec un autre passé en paramètre.
+4. Redéfinissez la méthode `equals(Object o)` dans la classe `Taquin` afin qu'elle permette de comparer le `Taquin` courant avec un autre passé en paramètre.
     
     **Astuce :** Nous vous conseillons d'utiliser votre IDE pour redéfinir `equals(Object o)` et de prendre le temps de
     comprendre le code qu'il vous générera. Vous ajusterez cette redéfinition, en fonction de la logique du code de votre
