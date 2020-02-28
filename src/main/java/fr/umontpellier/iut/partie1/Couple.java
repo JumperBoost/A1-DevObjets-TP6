@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Couple {
 
-    private Taquin jeuPuzzle;
+    private Taquin taquin;
     private Couple predecesseur;
 
-    public Couple(Taquin jeuPuzzle, Couple predecesseur) {
-        this.jeuPuzzle = jeuPuzzle;
+    public Couple(Taquin taquin, Couple predecesseur) {
+        this.taquin = taquin;
         this.predecesseur = predecesseur;
     }
 
