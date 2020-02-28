@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TaquinTest {
     @Test
-    public void test_est_gagnant_faux() {
+    public void test_est_gagnant_faux_3_X_3() {
         int[][] data = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
         Taquin t = new Taquin(data);
         assertFalse(t.estGagnant());
@@ -16,7 +16,7 @@ class TaquinTest {
 
 
     @Test
-    public void test_trouver_trou_coin_hd() {
+    public void test_trouver_trou_coin_hd_3_X_3() {
         int[][] data = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
         Taquin t = new Taquin(data);
         int[] res = t.trouverTrou();
@@ -25,7 +25,7 @@ class TaquinTest {
     }
 
     @Test
-    public void test_equals_vrai() {
+    public void test_equals_vrai_3_X_3() {
         int[][] data = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
         Taquin t = new Taquin(data);
         int[][] data2 = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
@@ -35,7 +35,7 @@ class TaquinTest {
 
 
     @Test
-    public void test_generer_Fils_coin() {
+    public void test_generer_Fils_coin_3_X_3() {
         int[][] data = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
         Taquin t = new Taquin(data);
         ArrayList<Taquin> res = t.genererFils();

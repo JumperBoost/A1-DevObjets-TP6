@@ -78,7 +78,7 @@ Pour cela utilisez les tests fournis (pour certaines questions seulement), et pe
 #### Exercice 1
 La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut.partie1`. Vous devez la compléter comme suit :
 
-1. L'attribut `tableau` représente le plateau du taquin en deux dimension. On supposera que le trou du plateau est représenté par le chiffre `0` et que la première dimension (resp. deuxième dimension) du tableau représente la ligne (resp. colonne). Dans l'exemple ci-dessous, la case [1][3] contient le chiffre 2 et la case [2][2] contient le chiffre 14 :
+1. L'attribut `tableau` représente le plateau du taquin en deux dimension. On supposera que le trou du plateau est représenté par le chiffre `0` et que la première dimension (resp. deuxième dimension) du tableau représente la ligne (resp. colonne). Dans l'exemple ci-dessous, la case [1][3] contient le chiffre 2 et la case [2][2] contient le chiffre 8 :
 
     ```
     +---------------+
