@@ -81,7 +81,7 @@ Pour cela utilisez les tests fournis (pour certaines questions seulement), et pe
 #### Exercice 1
 La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut.partie1`. Vous devez la compléter comme suit :
 
-1. L'attribut `tableau` représente le plateau du taquin en deux dimension. On supposera que le trou du plateau est représenté par le chiffre `0` et que la première dimension (resp. deuxième dimension) du tableau représente la ligne (resp. colonne). Dans l'exemple ci-dessous, la case [1][3] contient le chiffre 2 et la case [2][2] contient le chiffre 8 :
+1. L'attribut `tableau` représente le plateau du taquin en deux dimensions. On supposera que le trou du plateau est représenté par le chiffre `0` et que la première dimension (resp. deuxième dimension) du tableau représente la ligne (resp. colonne). Dans l'exemple ci-dessous, la case [1][3] contient le chiffre 2 et la case [2][2] contient le chiffre 8 :
 
     ```
     +---------------+
@@ -188,10 +188,10 @@ savoir s'il est dans une boucle infinie ou si "quelque chose" progresse ? Quelle
 Maintenant nous allons généraliser cette stratégie à la résolution d'autres jeux de type "puzzle". Afin de garder un
 historique du programme écrit précédemment, nous allons travailler dans un package différent.
 
-1. Dans le package `fr.umontpellier.iut.partie2`, copiez/collez les 3 classes écrites précédemment. Pour faire
+1. Copiez/collez les classes `Taquin`, `Couple`, `Contexte` et  dans le package `fr.umontpellier.iut.partie2`. Pour faire
  cela correctement, la manière la plus simple est de sélectionner **en même temps** les 3 classes dans l'IDE
  &rightarrow; _Copier_  &rightarrow; _Coller_ dans le package. Quelque soit la manière dont vous allez procéder, l'IDE
- vous signalera des duplications de code (logique, car c'est ce qui vous avez fait), mais _dans ce cas_ (et pour
+ vous signalera des duplications de code (logique, car c'est ce que vous avez fait), mais _dans ce cas_ (et pour
  _ce genre de duplications demandées_) vous
  allez ignorer ces avertissements car c'est un moyen simple de garder une copie de ce que vous avez fait dans les
  exercices précédents. Pour ce faire, vous pouvez ajouter l'annotation `@SuppressWarnings("Duplicates")` à la ligne juste avant la déclaration de la classe nouvellement copiée.
@@ -221,9 +221,9 @@ _1 &rightarrow; 2_, _1 &rightarrow; 2_ ne l'est pas.
    Une configuration du jeu correspondrait aux 3 poteaux contenant en tout les N disques. Chaque mouvement de disque
    autorisé d'un poteau vers un autre est une nouvelle configuration (nouveau fils donc). 
  
-5. Modifiez la classe principale pour maintenant tester la résolution de Hanoï (commencez par 3 disques sur le poteau gauche).
-On constate (avec joie !) qu'il n'y a pas à modifier l'algorithme de résolution puisqu'il fonctionne de façon "transparente"
-pour tout `JeuPuzzle`.
+5. Modifiez la classe principale (`AppJeuxPuzzle`) pour maintenant tester la résolution de Hanoï (commencez par 3 disques sur le poteau gauche).
+   On constate (avec joie !) qu'il n'y a pas à modifier l'algorithme de résolution puisqu'il fonctionne de façon "transparente"
+   pour tout `JeuPuzzle`.
 
 6. Dessinez le diagramme de classes de cette partie du sujet. Vous y indiquerez toutes les classes du package `fr.umontpellier.iut.partie2`.
  
@@ -232,5 +232,5 @@ pour tout `JeuPuzzle`.
 
 **Remarque** : Cette façon de programmer, en proposant une interface d'algorithme générale qui sera ensuite implémentée
 différemment, et dont les implémentations pourront être interchangées "à la volée" par l'utilisateur dans la classe cliente
-(ici `App`), fait référence au modèle de conception communément appelé
+(ici `AppJeuxPuzzle`), fait référence au modèle de conception communément appelé
 [_Stratégie_](https://en.wikipedia.org/wiki/Strategy_pattern).
