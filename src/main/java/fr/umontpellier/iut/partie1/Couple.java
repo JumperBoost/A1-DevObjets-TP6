@@ -12,7 +12,7 @@ public class Couple {
         this.predecesseur = predecesseur;
     }
 
-    public static void mettreAJour(Couple c, ArrayList<Couple> frontiere, ArrayList<Taquin> tab, ArrayList<Taquin> dejaVus) {
+    public static void mettreAJour(Couple c, ArrayList<Couple> frontiere, ArrayList<Taquin> fils, ArrayList<Taquin> dejaVus) {
         throw new RuntimeException("Méthode non-implémentée");
     }
 

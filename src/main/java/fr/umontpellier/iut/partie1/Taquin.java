@@ -3,7 +3,7 @@ package fr.umontpellier.iut.partie1;
 import java.util.ArrayList;
 
 public class Taquin {
-    private int[][] t;
+    private int[][] tableau;
 
     public Taquin(int[][] tableau) {
     }

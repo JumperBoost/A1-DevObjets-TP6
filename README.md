@@ -30,7 +30,7 @@ Avant de démarrer le TP, vérifiez que vous n'avez pas atteint votre quota d'es
 
 Cliquez sur le lien ci-dessous pour faire votre fork privé du TP (**attention, pas de fork à la main !**):
 
-Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche à 15 mars 23h00**
+Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche 15 mars à 23h00**
 
 L’objectif de ce TP est d’écrire un algorithme qui résout par exploration totale n’importe quel "puzzle". Avant de commencer le travail, nous allons
 illustrer cet algorithme sur un puzzle très simple : un [taquin](https://fr.wikipedia.org/wiki/Taquin) en une dimension.
@@ -164,9 +164,8 @@ ainsi que le couple `(t,c)` à `frontiere`, et ne rien faire pour le taquin `1 2
 #### Exercice 3
 
 La classe `Contexte` va encapsuler l'algorithme général de résolution du jeu. 
-L'attribut `Taquin taquin` servira à stocker le `Taquin` initial donné à l'objet `Contexte`, et l'attribut `solution` de type `ArrayList<Taquin>`
-servira à stocker la _trace_ des mouvements valides que l'algorithme a effectué depuis la position donnée par l'utilisateur afin d'obtenir une position gagnante,
-ou `null` si le taquin n'a pas de solution.
+L'attribut `Taquin taquinInitial` servira à stocker le taquin initial donné à l'objet `Contexte`, et l'attribut `solution` de type `ArrayList<Taquin>`
+servira à stocker la _trace_ des mouvements valides que l'algorithme a effectué depuis la position donnée par l'utilisateur afin d'obtenir une position gagnante (la liste sera vide si le taquin n'a pas de solution).
 
 
 1. Complétez la méthode `public void resoudre()` afin qu'elle affecte à l'attribut `solution` une `ArrayList<Taquin>` vide
@@ -176,7 +175,7 @@ si `taquin` n’est pas faisable, ou la liste des positions successives qui mèn
    * comme une _pile_ : le taquin extrait à chaque nouvelle étape est le dernier taquin à avoir été ajouté. Dans ce cas
    l'exploration de l'arbre se fera en profondeur (c'est-à-dire que l'on termine complètement une branche avant de
    passer à la suivante).
-   * comme une _file_ : le taquin extrait à chaque nouvelle étape est le premier a avoir été ajouté. Dans ce cas
+   * comme une _file_ : le taquin extrait à chaque nouvelle étape est le premier à avoir été ajouté. Dans ce cas
    l'exploration de l'arbre se fera en largeur (tous les taquins à distance 1 de la racine, puis tous les taquins
    à distance 2, etc.).
    
