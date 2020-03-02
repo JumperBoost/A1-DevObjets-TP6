@@ -79,9 +79,7 @@ Pour cela utilisez les tests fournis (pour certaines questions seulement), et pe
 
 ### Partie 1
 #### Exercice 1
-La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut.partie1`. Vous devez la compléter comme suit :
-
-1. L'attribut `tableau` représente le plateau du taquin en deux dimensions. On supposera que le trou du plateau est représenté par le chiffre `0` et que la première dimension (resp. deuxième dimension) du tableau représente la ligne (resp. colonne). Dans l'exemple ci-dessous, la case [1][3] contient le chiffre 2 et la case [2][2] contient le chiffre 8 :
+La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut.partie1`. L'attribut `tableau` représente le plateau du taquin en deux dimensions. On supposera que le trou du plateau est représenté par le chiffre `0` et que la première dimension (resp. deuxième dimension) du tableau représente la ligne (resp. colonne). Dans l'exemple ci-dessous, la case [1][3] contient le chiffre 2 et la case [2][2] contient le chiffre 8 :
 
     ```
     +---------------+
@@ -91,11 +89,14 @@ La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut.partie1
     |10   6   0  15 |
     +---------------+
     ```
-2. Redéfinissez la méthode `toString()` dans la classe `Taquin` afin d'afficher le contenu de son plateau.
+
+Complétez la classe `Taquin` comme suit :
+ 
+1. Redéfinissez la méthode `toString()` dans la classe `Taquin` afin d'afficher le contenu de son plateau.
 Pour un taquin `n X n` l'orientation imposée est la suivante : la case [0][0] est en haut à gauche,
 et la case [n-1][n-1] est en bas à droite.
 
-3. Complétez la méthode `public boolean estGagnant()` afin qu'elle retourne _vrai_ si le plateau est dans une
+2. Complétez la méthode `public boolean estGagnant()` afin qu'elle retourne _vrai_ si le plateau est dans une
    configuration gagnante et _faux_ sinon. Voici les configurations gagnantes pour des taquins `3 X 3` et `4 X 4`:
 
     ```
@@ -107,7 +108,7 @@ et la case [n-1][n-1] est en bas à droite.
                +---------------+
     ```
 
-4. Redéfinissez la méthode `equals(Object o)` dans la classe `Taquin` afin qu'elle permette de comparer le `Taquin` courant avec un autre passé en paramètre.
+3. Redéfinissez la méthode `equals(Object o)` dans la classe `Taquin` afin qu'elle permette de comparer le `Taquin` courant avec un autre passé en paramètre.
     
     **Astuce :** Nous vous conseillons d'utiliser votre IDE pour redéfinir `equals(Object o)` et de prendre le temps de
     comprendre le code qu'il vous générera. Vous ajusterez cette redéfinition, en fonction de la logique du code de votre
@@ -115,7 +116,7 @@ et la case [n-1][n-1] est en bas à droite.
     va être faite. Discutez-en également avec votre enseignant (voir également le
     [cours](http://pageperso.lis-lab.fr/~petru.valicov/Cours/M2103/BPOO_Heritage_Polymorphisme_x4.pdf)).
     
-5. Complétez la méthode  `public int[] trouverTrou()` (voir la spécification dans le code), puis la méthode `public ArrayList<Taquin> genererFils()`. Cette dernière retourne la liste des objets `Taquin` que l’on
+4. Complétez la méthode  `public int[] trouverTrou()` (voir la spécification dans le code), puis la méthode `public ArrayList<Taquin> genererFils()`. Cette dernière retourne la liste des objets `Taquin` que l’on
 peut obtenir en faisant un mouvement valide. Attention, cette méthode ne doit pas modifier `this`, et les taquins retournés dans la liste doivent être "indépendants" de `this` (c'est-à-dire avoir leur propre tableau d'entiers comme plateau). Pour `genererFils()`, on peut suivre la stratégie suivante : commencer par trouver les coordonnées du trou.
 Si le trou n'est pas collé à gauche, alors on peut générer le fils dans lequel le trou est déplacé à gauche.
 Si le trou n'est pas collé à droite, alors... etc. 
