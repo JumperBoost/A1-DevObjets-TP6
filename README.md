@@ -126,10 +126,13 @@ et la case [n-1][n-1] est en bas à droite.
     va être faite. Discutez-en également avec votre enseignant (voir également le
     [cours](http://pageperso.lis-lab.fr/~petru.valicov/Cours/M2103/BPOO_Heritage_Polymorphisme_x4.pdf)).
     
-4. Complétez la méthode  `public int[] trouverTrou()` (voir la spécification dans le code), puis la méthode `public ArrayList<Taquin> genererFils()`. Cette dernière retourne la liste des objets `Taquin` que l’on
-peut obtenir en faisant un mouvement valide. Attention, cette méthode ne doit pas modifier `this`, et les taquins retournés dans la liste doivent être "indépendants" de `this` (c'est-à-dire avoir leur propre tableau d'entiers comme plateau). Pour `genererFils()`, on peut suivre la stratégie suivante : commencer par trouver les coordonnées du trou.
-Si le trou n'est pas collé à gauche, alors on peut générer le fils dans lequel le trou est déplacé à gauche.
-Si le trou n'est pas collé à droite, alors... etc. 
+4. Écrivez le corps de la méthode  `public int[] trouverTrou()` afin qu'elle retourne un tableau `[i,j]` si `tableau[i][j]==0`. 
+   
+5. Écrivez le corps de la méthode `public ArrayList<Taquin> genererFils()`. Cette dernière retourne la liste des objets `Taquin` que l’on
+peut obtenir en faisant un mouvement valide. Attention, cette méthode ne doit pas modifier `this`, et les taquins retournés dans la liste doivent être "indépendants" de `this` (c'est-à-dire avoir leur propre tableau d'entiers comme plateau). Pour `genererFils()`, on peut suivre la stratégie suivante :
+   * commencer par trouver les coordonnées du trou ;
+   * si le trou n'est pas collé à gauche, alors on peut générer le fils dans lequel le trou est déplacé à gauche ; 
+   * si le trou n'est pas collé à droite, alors... etc. 
 
 
 #### Exercice 2
