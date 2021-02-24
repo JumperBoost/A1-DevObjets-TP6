@@ -22,10 +22,15 @@
 
 
 ### Consignes
-- Vous respecterez toutes les [consignes](https://github.com/IUTInfoMontp-M2103/TP4#consignes) indiquées dans le TP4.
-- Vous essaierez de respecter au maximum les [consignes](https://github.com/IUTInfoMontp-M2103/TP5#consignes) indiquées dans le TP5.
-- Des commentaires sont données dans le code qui vous est fourni afin de vous aider à comprendre ce que vous êtes censés de programmer.
-
+- Sauf indication contraire, **tous** les attributs que vous allez déclarer doivent être privés (`private`).
+- La plupart des méthodes devraient être déclarées publiques (`public`). Vous pouvez tout de même déclarer et utiliser des méthodes `private` du moment qu'elles vous sont utiles et que votre programme fonctionne correctement.
+- Essayez de respecter les conventions de nommage *Java* (vues en [cours](http://pageperso.lis-lab.fr/~petru.valicov/Cours/M2103/BPOO_Generalites_x4.pdf) ou disponibles sur le site d'Oracle).
+- **Sauf indication contraire, vous ne devrez pas modifier la signature des méthodes et des attributs des classes qui vous sont proposées.**
+- Vous essaierez de respecter au maximum les [consignes](https://github.com/IUTInfoMontp-M2103/TP5#consignes) indiquées dans le TP5 :
+  * principes [DRY](https://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas), KISS et [YAGNI](https://fr.wikipedia.org/wiki/YAGNI)
+  * encapsulation de vos classes
+  * contrat des classes parentes par héritage
+- Des commentaires sont donnés dans le code qui vous est fourni afin de vous aider à comprendre ce que vous êtes censés de programmer.
 
 
 ## TP6
