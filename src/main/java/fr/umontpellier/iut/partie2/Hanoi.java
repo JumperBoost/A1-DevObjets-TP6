@@ -9,6 +9,7 @@ public class Hanoi {
                 * rien sur les tour 2 et 3 (elles sont vides)
 
          */
+        throw new RuntimeException("Méthode non implémentée ! Effacez cette ligne et écrivez le code nécessaire");
     }
 
 
@@ -18,6 +19,7 @@ public class Hanoi {
         si tour1 est une ArrayList contenant [3,2,1], et tour2 et tour3 sont des ArrayList vides, alors
         Hanoi(tour1, tour2, tour3) doit créer la même configuration que Hanoi(3).
          */
+        throw new RuntimeException("Méthode non implémentée ! Effacez cette ligne et écrivez le code nécessaire");
     }
 
 

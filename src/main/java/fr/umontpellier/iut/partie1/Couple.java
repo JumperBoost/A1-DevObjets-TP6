@@ -13,11 +13,11 @@ public class Couple {
     }
 
     public void mettreAJour(ArrayList<Couple> frontiere, ArrayList<Taquin> dejaVus) {
-        throw new RuntimeException("Méthode non-implémentée");
+        throw new RuntimeException("Méthode non implémentée ! Effacez cette ligne et écrivez le code nécessaire");
     }
 
     public ArrayList<Taquin> getListeDeMouvements() {
-        throw new RuntimeException("Méthode non-implémentée");
+        throw new RuntimeException("Méthode non implémentée ! Effacez cette ligne et écrivez le code nécessaire");
     }
 
 
