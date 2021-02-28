@@ -26,7 +26,7 @@
 - La plupart des méthodes devraient être déclarées publiques (`public`). Vous pouvez tout de même déclarer et utiliser des méthodes `private` du moment qu'elles vous sont utiles et que votre programme fonctionne correctement.
 - Essayez de respecter les conventions de nommage *Java* (vues en [cours](http://pageperso.lis-lab.fr/~petru.valicov/Cours/M2103/BPOO_Generalites_x4.pdf) ou disponibles sur le site d'Oracle).
 - **Sauf indication contraire, vous ne devrez pas modifier la signature des méthodes et des attributs des classes qui vous sont proposées.**
-- Vous essaierez de respecter au maximum les [consignes](https://github.com/IUTInfoMontp-M2103/TP5#consignes) indiquées dans le TP5 :
+- Vous essaierez de respecter au maximum les différents principes vus en cours :
   * principes [DRY](https://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas), KISS et [YAGNI](https://fr.wikipedia.org/wiki/YAGNI)
   * encapsulation de vos classes
   * contrat des classes parentes par héritage
@@ -47,8 +47,7 @@ illustrer cet algorithme sur un puzzle très simple : un [taquin](https://fr.wik
 Puis, vous implémenterez dans la [Partie 1](https://github.com/IUTInfoMontp-M2103/TP6#partie-1) cet algorithme sur un taquin **en deux dimensions**.
 Enfin, vous généraliserez cet algorithme à n'importe quel puzzle dans la [Partie 2](https://github.com/IUTInfoMontp-M2103/TP6#partie-2).
 
-Prenons l'exemple d'un taquin en une dimension à 5 cases. La position initiale (notée `1 2 * 3 4`) du taquin est
-dessinée en haut de la figure ci-dessous :
+Prenons l'exemple d'un taquin en une dimension à 5 cases. La position initiale (notée `1 2 * 3 4`) du taquin est dessinée en haut de la Figure 1 :
 
 ![](ressources/fig_taquin.png)
 
@@ -60,32 +59,32 @@ gagnante est `1 2 3 4 *`.
 Nous allons décrire informellement l'algorithme pour résoudre le taquin. Cet algorithme utilise deux variables :
 * __frontiere__ : qui va contenir à chaque instant un ensemble de configurations de taquin différentes qu'il reste à
 examiner
-* __dejaVues__ : qui va contenir à chaque instant l'ensemble des configurations déjà examinées.
+* __dejaVus__ : qui va contenir à chaque instant l'ensemble des configurations déjà examinées.
 
-On initialise `frontiere` et `dejaVues` avec la configuration initiale, et on maintiendra l'invariant que `frontiere`
-est un sous-ensemble de `dejaVues`.  À chaque étape, on extrait une configuration de la frontière, on en génère toutes
+On initialise `frontiere` et `dejaVus` avec la configuration initiale, et on maintiendra l'invariant que `frontiere`
+est un sous-ensemble de `dejaVus`.  À chaque étape, on extrait une configuration de la frontière, on en génère toutes
 les configurations "filles" c'est-à-dire les configurations atteignables en effectuant _un seul mouvement valide_, puis
-on ajoute à  `frontiere` et à `dejaVues`  toutes les configurations filles qui n'ont pas été déjà vues. Les ensembles de
+on ajoute à  `frontiere` et à `dejaVus`  toutes les configurations filles qui n'ont pas été déjà vues. Les ensembles de
 configurations _a)_, _b)_ et _c)_, délimités en pointillés, indiquent l'évolution de la frontière lors des 3 premières
 étapes (en supposant que lorsque la frontière était égale à _b)_, c'est la configuration `1 * 2 3 4` qui a été extraite).
-Remarquez que les configurations barrées ne sont pas ajoutées à la `frontiere` (ni à `dejaVues`) puisqu'elles sont déjà
-présentes dans `dejaVues` au moment où l'on essaye de les ajouter. L'algorithme se termine lorsqu'il atteint une
+Remarquez que les configurations barrées ne sont pas ajoutées à la `frontiere` (ni à `dejaVus`) puisqu'elles sont déjà
+présentes dans `dejaVus` au moment où l'on essaye de les ajouter. L'algorithme se termine lorsqu'il atteint une
 configuration gagnante, ou lorsque la frontière devient vide. Ainsi on obtient une structure arborescente (ou arbre
 d'exploration) représentant l'ensemble de mouvements valides obtenus à partir de la racine (configuration initiale). 
 
-**Remarque** : Certaines configurations du taquin ne sont pas résolubles. En une dimension il est facile de voir que les
+**Remarque** : certaines configurations du taquin ne sont pas résolubles. En une dimension il est facile de voir que les
 cases ne peuvent pas se croiser (donc par exemple la configuration `2 1 * 3 4` ne peut pas être résolue) et en deux
 dimensions on peut montrer que la moitié des configurations initiales possibles n'admettent pas de solution (cf.
 [page _Wikipédia_](https://fr.wikipedia.org/wiki/Taquin#Configurations_solubles_et_insolubles) pour une caractérisation).
  
-L'algorithme expliqué ci-dessus, permet de résoudre le taquin, à savoir obtenir la configuration finale gagnante si elle
+L'algorithme expliqué ci-dessus permet de résoudre le taquin, à savoir obtenir la configuration finale gagnante si elle
 existe. Dans ce qui suit, on vous demandera également de stocker la _trace_ de la solution, qui indique les configurations
 obtenues à chaque étape intermédiaire pour arriver à la solution finale. Avoir la trace est intéressant pour
 un utilisateur, afin de voir la stratégie à adopter pour résoudre le puzzle à partir de la configuration initiale. C'est aussi pratique pour vérifier si votre programme fonctionne correctement... La trace de la solution va correspondre à une liste chaînée de configurations construite de la façon suivante : lorsqu'une configuration `c2` est générée à partir d'une configuration `c1`, on mémorisera que
 le "_père_" de `c2` est `c1`. Un maillon de cette liste chaînée est donc un couple (_configuration taquin, couple parent_).
 
 Dans tout le TP, nous vous invitons à vérifier au fur et à mesure que votre code est correct.
-Pour cela utilisez les tests fournis (pour certaines questions seulement), et pensez à en écrire d'autres. Également pensez à compléter la méthode `main(String args[])` des classes principales (`fr.umontpellier.iut.partie1.App` et `fr.umontpellier.iut.partie1.AppJeuxPuzzle`).
+Pour cela utilisez les tests fournis (pour certaines questions seulement), et pensez à en écrire d'autres. Également pensez à compléter la méthode `main(String args[])` des classes principales (`fr.umontpellier.iut.partie1.AppTaquin` et `fr.umontpellier.iut.partie1.AppJeuxPuzzle`).
 
 ### Partie 1
 #### Exercice 1
@@ -120,7 +119,7 @@ et la case [n-1][n-1] est en bas à droite.
 
 3. Redéfinissez la méthode `equals(Object o)` dans la classe `Taquin` afin qu'elle permette de comparer le `Taquin` courant avec un autre passé en paramètre.
     
-    **Astuce :** Nous vous conseillons d'utiliser votre IDE pour redéfinir `equals(Object o)` et de prendre le temps de
+    **Astuce :** nous vous conseillons d'utiliser votre IDE pour redéfinir `equals(Object o)` et de prendre le temps de
     comprendre le code qu'il vous générera. Vous ajusterez cette redéfinition, en fonction de la logique du code de votre
     classe `Taquin`. Prêtez également attention à la redéfinition de la méthode `public int hashCode()` de `Object` qui
     va être faite. Discutez-en également avec votre enseignant (voir également le
@@ -140,9 +139,9 @@ peut obtenir en faisant un mouvement valide. Attention, cette méthode ne doit p
 Rappelez-vous que nous aurons besoin de "couples chaînés" pour pouvoir retrouver la suite des coups effectués lorsque
 l'algorithme trouve une position gagnante. C'est pour cela que la classe `Couple` vous est donnée. Complétez cette classe
 de la façon suivante :
-   
 
-1. Complétez la méthode `public ArrayList<Taquin> getListeDeMouvements()` ayant les spécifications suivantes :
+
+1. Écrivez le corps de la méthode `public ArrayList<Taquin> getListeDeMouvements()` ayant les spécifications suivantes :
 
    * __hypothèse__ : le couple courant (`this`) représente une solution ayant été atteinte depuis la racine de l'arbre
    d'exploration (on a donc un chaînage du type 
@@ -151,10 +150,9 @@ de la façon suivante :
    qui correspond donc à la description de la solution trouvée
    
 2. Complétez la méthode `public void mettreAJour(ArrayList<Couple> frontiere, ArrayList<Taquin> dejaVus)` pour qu'elle respecte la spécification ci-dessous. Avant de lire cette spécification, considérons l'exemple la Figure 1 dans lequel 
-      * `this` représente le couple dont le taquin est celui de gauche dans la frontière _b)_ de l'exemple
-      ci-dessus (et son prédécesseur pointe sur la racine)  
-      * `frontiere` est l'ensemble de `Couple` dont les taquins sont ceux de _b)_ 
-      * l'ensemble des taquins fils du taquin contenu dans `this` sont `* 1 2 3 4` et `1 2 * 3 4`
+      * `this` représente le couple dont le taquin est celui de gauche dans la frontière _b)_ (et son prédécesseur pointe sur la racine)  
+      * `frontiere` est l'ensemble d'objets `Couple` dont les taquins sont ceux de _b)_ 
+      * les taquins fils du taquin contenu dans `this` sont `* 1 2 3 4` et `1 2 * 3 4`
       * `dejaVus` est l'ensemble des 3 taquins de _a)_ U _b)_.
        
       Dans cet exemple, `mettreAJour(frontiere,dejaVus)` doit ajouter le taquin `t = * 1 2 3 4` à `dejaVus`
@@ -193,7 +191,7 @@ si `taquin` n'est pas faisable, ou la liste des positions successives qui mènen
 4. Testez d'abord avec des taquins que l'on peut résoudre. Pour cela, créez un taquin à distance 1 de la position 
 gagnante (c'est-à-dire nécessitant un mouvement pour le résoudre), puis à distance 2, puis à distance _k_ > 2.
 Ensuite, testez avec un taquin quelconque. Si votre algorithme s'exécute pendant plusieurs minutes, comment essayer de
-savoir s'il est dans une boucle infinie ou si "quelque chose" progresse ? Quelle(s) donnée(s) pourriez vous afficher
+savoir s'il est dans une boucle infinie ou si "quelque chose" progresse ? Quelle(s) donnée(s) pourriez-vous afficher
 (même si cela ralentit énormément l'algorithme) pour répondre à cette question ?
 
 
@@ -202,7 +200,7 @@ savoir s'il est dans une boucle infinie ou si "quelque chose" progresse ? Quelle
 Maintenant nous allons généraliser cette stratégie à la résolution d'autres jeux de type "puzzle". Afin de garder un
 historique du programme écrit précédemment, nous allons travailler dans un package différent.
 
-1. Copiez/collez les classes `Taquin`, `Couple`, `Contexte` et  dans le package `fr.umontpellier.iut.partie2`. Pour faire
+1. Copiez/collez les classes `Taquin`, `Couple` et `Contexte` dans le package `fr.umontpellier.iut.partie2`. Pour faire
  cela correctement, la manière la plus simple est de sélectionner **en même temps** les 3 classes dans l'IDE
  &rightarrow; _Copier_  &rightarrow; _Coller_ dans le package. Quelle que soit la manière dont vous allez procéder, l'IDE
  vous signalera des duplications de code (logique, car c'est ce que vous avez fait), mais _dans ce cas_ (et pour
@@ -250,7 +248,7 @@ _1 &rightarrow; 2_, _1 &rightarrow; 2_ ne l'est pas.
    
 
 
-**Remarque** : Cette façon de programmer, en proposant une interface d'algorithme générale qui sera ensuite implémentée
+**Remarque** : cette façon de programmer, en proposant une interface d'algorithme générale qui sera ensuite implémentée
 différemment, et dont les implémentations pourront être interchangées "à la volée" par l'utilisateur dans la classe cliente
 (ici `AppJeuxPuzzle`), fait référence au modèle de conception communément appelé
 [_Stratégie_](https://en.wikipedia.org/wiki/Strategy_pattern).
