@@ -88,7 +88,7 @@ Pour cela utilisez les tests fournis (pour certaines questions seulement), et pe
 
 ### Partie 1
 #### Exercice 1
-La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut.partie1`. L'attribut `tableau` représente le plateau du taquin en deux dimensions. On supposera que le trou du plateau est représenté par le chiffre `0` et que la première dimension (resp. deuxième dimension) du tableau représente la ligne (resp. colonne). Dans l'exemple ci-dessous, la case [1][3] contient le chiffre 2 et la case [2][2] contient le chiffre 8 :
+La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut.partie1`. L'attribut `tableau` représente le plateau du taquin en deux dimensions. On supposera que le trou du plateau est représenté par le chiffre `0` et que la première dimension (resp. deuxième dimension) du tableau représente la ligne (resp. colonne). Attention, dans tout le sujet les exemples sont donnés sur des taquins carrés, mais il faudra bien être capable de gérer dans toutes vos méthodes des taquins rectangulaires. Dans l'exemple ci-dessous, la case [1][3] contient le chiffre 2 et la case [2][2] contient le chiffre 8 :
 
     ```
     +---------------+
@@ -102,8 +102,7 @@ La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut.partie1
 Complétez la classe `Taquin` comme suit :
  
 1. Redéfinissez la méthode `toString()` dans la classe `Taquin` afin d'afficher le contenu de son plateau.
-Pour un taquin `n X n` l'orientation imposée est la suivante : la case [0][0] est en haut à gauche,
-et la case [n-1][n-1] est en bas à droite.
+Pour un taquin `n X m` l'orientation imposée est la suivante : la ligne du haut contient, de gauche à droite, les cases [0][0], [0][1], ... , [0][m-1], et la case en bas à droite est donc [n-1][m-1].
 
 2. Complétez la méthode `public boolean estGagnant()` afin qu'elle retourne _vrai_ si le plateau est dans une
    configuration gagnante et _faux_ sinon. Voici les configurations gagnantes pour des taquins `3 X 3` et `4 X 4`:
@@ -125,7 +124,7 @@ et la case [n-1][n-1] est en bas à droite.
     va être faite. Discutez-en également avec votre enseignant (voir également le
     [cours](http://pageperso.lis-lab.fr/~petru.valicov/Cours/M2103/BPOO_Heritage_Polymorphisme_x4.pdf)).
     
-4. Écrivez le corps de la méthode  `public int[] trouverTrou()` afin qu'elle retourne un tableau `[i,j]` si `tableau[i][j]==0`. 
+4. Écrivez le corps de la méthode  `public int[] trouverTrou()` afin qu'elle retourne un tableau `[i,j]` si `tableau[i][j]==0`. Cette méthode a pour prérequis que le taquin contient bien un seul 0.
    
 5. Écrivez le corps de la méthode `public ArrayList<Taquin> genererFils()`. Cette dernière retourne la liste des objets `Taquin` que l'on
 peut obtenir en faisant un mouvement valide. Attention, cette méthode ne doit pas modifier `this`, et les taquins retournés dans la liste doivent être "indépendants" de `this` (c'est-à-dire avoir leur propre tableau d'entiers comme plateau). Pour `genererFils()`, on peut suivre la stratégie suivante :
