@@ -20,5 +20,7 @@ public class Couple {
         throw new RuntimeException("Méthode non implémentée ! Effacez cette ligne et écrivez le code nécessaire");
     }
 
-
+    public Taquin getTaquin() {
+        return taquin;
+    }
 }
