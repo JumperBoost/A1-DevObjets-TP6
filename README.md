@@ -1,12 +1,12 @@
 # ![](ressources/logo.jpeg)
 
-# Bases de la programmation orientée objet
+# Développement Orienté Objets
 
 ### IUT Montpellier-Sète – Département Informatique
 
-* **Cours:** [M2103](http://cache.media.enseignementsup-recherche.gouv.fr/file/25/09/7/PPN_INFORMATIQUE_256097.pdf) - support [ici](https://github.com/IUTInfoMontp-M2103/Ressources)
+* **Cours:** [M2103](http://cache.media.enseignementsup-recherche.gouv.fr/file/25/09/7/PPN_INFORMATIQUE_256097.pdf) - support [ici](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/Ressources)
 * **Enseignants:** [Marin Bougeret](mailto:marin.bougeret@umontpellier.fr), [Romain Lebreton](mailto:romain.lebreton@umontpellier.fr), [Sophie Nabitz](mailto:sophie.nabitz@univ-avignon.fr), [Victor Poupet](mailto:victor.poupet@umontpellier.fr), [Petru Valicov](mailto:petru.valicov@umontpellier.fr)
-* Le [forum Piazza](https://piazza.com/class/kjifrxy1n0i3xa) de ce cours pour poser vos questions
+* Le [forum Piazza](https://piazza.com/class/kyo4oooauez252) de ce cours pour poser vos questions
 * [Email](mailto:petru.valicov@umontpellier.fr) pour une question d'ordre privée concernant le cours.
 * Le [sujet du TP](https://pageperso.lis-lab.fr/~petru.valicov/Cours/M2103/TP6.pdf) en format .pdf téléchargeable et imprimable.
 
@@ -44,8 +44,8 @@ Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche 21 mars à
 
 L'objectif de ce TP est d'écrire un algorithme qui résout par exploration totale n'importe quel "puzzle". Avant de commencer le travail, nous allons
 illustrer cet algorithme sur un puzzle très simple : un [taquin](https://fr.wikipedia.org/wiki/Taquin) en une dimension.
-Puis, vous implémenterez dans la [Partie 1](https://github.com/IUTInfoMontp-M2103/TP6#partie-1) cet algorithme sur un taquin **en deux dimensions**.
-Enfin, vous généraliserez cet algorithme à n'importe quel puzzle dans la [Partie 2](https://github.com/IUTInfoMontp-M2103/TP6#partie-2).
+Puis, vous implémenterez dans la [Partie 1](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/TP6#partie-1) cet algorithme sur un taquin **en deux dimensions**.
+Enfin, vous généraliserez cet algorithme à n'importe quel puzzle dans la [Partie 2](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/TP6#partie-2).
 
 Prenons l'exemple d'un taquin en une dimension à 5 cases. La position initiale (notée `1 2 * 3 4`) du taquin est dessinée en haut de la Figure 1 :
 
