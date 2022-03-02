@@ -4,11 +4,17 @@
 
 ### IUT Montpellier-Sète – Département Informatique
 
-* **Cours:** [M2103](http://cache.media.enseignementsup-recherche.gouv.fr/file/25/09/7/PPN_INFORMATIQUE_256097.pdf) - support [ici](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/Ressources)
-* **Enseignants:** [Marin Bougeret](mailto:marin.bougeret@umontpellier.fr), [Romain Lebreton](mailto:romain.lebreton@umontpellier.fr), [Sophie Nabitz](mailto:sophie.nabitz@univ-avignon.fr), [Victor Poupet](mailto:victor.poupet@umontpellier.fr), [Petru Valicov](mailto:petru.valicov@umontpellier.fr)
+* [**Support de cours**](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/Ressources)
+* **Enseignants:**
+  [Marin Bougeret](mailto:marin.bougeret@umontpellier.fr),
+  [Gaëlle Hisler](mailto:gaelle.hisler@umontpellier.fr),<!--[Sophie Nabitz](mailto:sophie.nabitz@univ-avignon.fr),-->
+  [Cyrille Nadal](mailto:cyrille.nadal@umontpellier.fr),
+  [Victor Poupet](mailto:victor.poupet@umontpellier.fr),
+  [Gilles Trombettoni](mailto:gilles.trombettoni@umontpellier.fr),
+  [Petru Valicov](mailto:petru.valicov@umontpellier.fr)
 * Le [forum Piazza](https://piazza.com/class/kyo4oooauez252) de ce cours pour poser vos questions
 * [Email](mailto:petru.valicov@umontpellier.fr) pour une question d'ordre privée concernant le cours.
-* Le [sujet du TP](https://pageperso.lis-lab.fr/~petru.valicov/Cours/M2103/TP6.pdf) en format .pdf téléchargeable et imprimable.
+* Le [sujet du TP](https://www.lirmm.fr/~pvalicov/Cours/dev-objets/TP6.pdf) en format .pdf téléchargeable et imprimable.
 
 <!--Avant de démarrer le TP, vérifiez que vous n'avez pas atteint votre quota d'espace de stockage autorisé :
 
@@ -24,7 +30,7 @@
 ### Consignes
 - Sauf indication contraire, **tous** les attributs que vous allez déclarer doivent être privés (`private`).
 - La plupart des méthodes devraient être déclarées publiques (`public`). Vous pouvez tout de même déclarer et utiliser des méthodes `private` du moment qu'elles vous sont utiles et que votre programme fonctionne correctement.
-- Essayez de respecter les conventions de nommage *Java* (vues en [cours](http://pageperso.lis-lab.fr/~petru.valicov/Cours/M2103/BPOO_Generalites_x4.pdf) ou disponibles sur le site d'Oracle).
+- Essayez de respecter les conventions de nommage *Java* (vues en [cours](https://www.lirmm.fr/~pvalicov/Cours/dev-objets/Generalites_x4.pdf) ou disponibles sur le site d'Oracle).
 - **Sauf indication contraire, vous ne devrez pas modifier la signature des méthodes et des attributs des classes qui vous sont proposées.**
 - Vous essaierez de respecter au maximum les différents principes vus en cours :
   * principes [DRY](https://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas), KISS et [YAGNI](https://fr.wikipedia.org/wiki/YAGNI)
@@ -36,11 +42,7 @@
 ## TP6
 #### _Thème : Héritage, Interfaces_
 
-Cliquez sur le lien ci-dessous pour faire votre fork privé du TP (**attention, pas de fork à la main !**):
-
-https://classroom.github.com/a/WUpS4R60
-
-Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche 21 mars à 23h00**
+Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche 20 mars à 23h00**
 
 L'objectif de ce TP est d'écrire un algorithme qui résout par exploration totale n'importe quel "puzzle". Avant de commencer le travail, nous allons
 illustrer cet algorithme sur un puzzle très simple : un [taquin](https://fr.wikipedia.org/wiki/Taquin) en une dimension.
@@ -121,8 +123,7 @@ Pour un taquin `n X m` l'orientation imposée est la suivante : la ligne du haut
     **Astuce :** nous vous conseillons d'utiliser votre IDE pour redéfinir `equals(Object o)` et de prendre le temps de
     comprendre le code qu'il vous générera. Vous ajusterez cette redéfinition, en fonction de la logique du code de votre
     classe `Taquin`. Prêtez également attention à la redéfinition de la méthode `public int hashCode()` de `Object` qui
-    va être faite. Discutez-en également avec votre enseignant (voir également le
-    [cours](http://pageperso.lis-lab.fr/~petru.valicov/Cours/M2103/BPOO_Heritage_Polymorphisme_x4.pdf)).
+    va être faite. Discutez-en également avec votre enseignant (voir également le [cours](https://www.lirmm.fr/~pvalicov/Cours/dev-objets/BPOO_Heritage_Polymorphisme_x4.pdf)).
     
 4. Écrivez le corps de la méthode  `public int[] trouverTrou()` afin qu'elle retourne un tableau `[i,j]` si `tableau[i][j]==0`. Cette méthode a pour prérequis que le taquin contient bien un seul 0.
    
