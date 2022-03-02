@@ -42,7 +42,7 @@
 ## TP6
 #### _Thème : Héritage, Interfaces_
 
-Date limite de rendu de votre code sur le dépôt GitHub : **Dimanche 20 mars à 23h00**
+Date limite de rendu de votre code sur votre dépôt GitLab : **Dimanche 20 mars à 23h00**
 
 L'objectif de ce TP est d'écrire un algorithme qui résout par exploration totale n'importe quel "puzzle". Avant de commencer le travail, nous allons
 illustrer cet algorithme sur un puzzle très simple : un [taquin](https://fr.wikipedia.org/wiki/Taquin) en une dimension.
