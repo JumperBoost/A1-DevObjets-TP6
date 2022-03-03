@@ -86,7 +86,7 @@ un utilisateur, afin de voir la stratégie à adopter pour résoudre le puzzle �
 le "_père_" de `c2` est `c1`. Un maillon de cette liste chaînée est donc un couple (_configuration taquin, couple parent_).
 
 Dans tout le TP, nous vous invitons à vérifier au fur et à mesure que votre code est correct.
-Pour cela utilisez les tests fournis (pour certaines questions seulement), et pensez à en écrire d'autres. Également pensez à compléter la méthode `main(String args[])` des classes principales (`fr.umontpellier.iut.partie1.AppTaquin` et `fr.umontpellier.iut.partie1.AppJeuxPuzzle`).
+Pour cela utilisez les tests fournis (pour certaines questions seulement), et pensez à en écrire d'autres. Également pensez à compléter la méthode `main(String args[])` des classes principales (`fr.umontpellier.iut.partie1.AppTaquin` et `fr.umontpellier.iut.partie2.AppJeuxPuzzle`).
 
 ### Partie 1
 #### Exercice 1
