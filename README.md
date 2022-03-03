@@ -64,7 +64,7 @@ examiner
 * __dejaVus__ : qui va contenir à chaque instant l'ensemble des configurations déjà examinées.
 
 On initialise `frontiere` et `dejaVus` avec la configuration initiale, et on maintiendra l'invariant que `frontiere`
-est un sous-ensemble de `dejaVus`.  À chaque étape, on extrait une configuration de la frontière, on en génère toutes
+est un sous-ensemble de `dejaVus`. À chaque étape, on extrait une configuration de la frontière, on en génère toutes
 les configurations "filles" c'est-à-dire les configurations atteignables en effectuant _un seul mouvement valide_, puis
 on ajoute à  `frontiere` et à `dejaVus`  toutes les configurations filles qui n'ont pas été déjà vues. Les ensembles de
 configurations _a)_, _b)_ et _c)_, délimités en pointillés, indiquent l'évolution de la frontière lors des 3 premières
@@ -245,14 +245,33 @@ _1 &rightarrow; 2_, _1 &rightarrow; 2_ ne l'est pas.
 
 6. Dessinez le diagramme de classes de cette partie du sujet. Vous y indiquerez toutes les classes du package `fr.umontpellier.iut.partie2`.
 
-7. **Bonus :** Implémentez d'autres jeux de type puzzle. Par exemple, le jeu de [Sudoku](https://fr.wikipedia.org/wiki/Sudoku), où le programme prend en entrée une grille carrée `nxn` (généralement `9x9`) contenant des chiffres dans certaines cases. Le programme devra remplir les cases vides avec les chiffres correspondant de façon à ce que :
-   * la grille devienne un [carré latin](https://fr.wikipedia.org/wiki/Carr%C3%A9_latin);
-   * les sous-blocs de la grille de taille **$\sqrt{n}$** deviennent des carrés latins.
-   
-    **Remarque :** Votre algorithme risque d'être lent si la grille est trop grande ou peu remplie. C'est normal, car il s'agit d'une exploration exhaustive de l'espace de recherche. Il n'y a pas de magie.
-
 
 **Remarque** : cette façon de programmer, en proposant une interface d'algorithme générale qui sera ensuite implémentée
 différemment, et dont les implémentations pourront être interchangées "à la volée" par l'utilisateur dans la classe cliente
 (ici `AppJeuxPuzzle`), fait référence au modèle de conception communément appelé
 [_Stratégie_](https://en.wikipedia.org/wiki/Strategy_pattern).
+
+7. **Bonus :** Implémentez d'autres jeux de type puzzle. Par exemple, le jeu de [Sudoku](https://fr.wikipedia.org/wiki/Sudoku), où le programme prend en entrée une grille carrée `nxn` (généralement `9x9`) contenant des chiffres dans certaines cases. Si une solution existe, alors le programme devra remplir les cases vides avec les chiffres correspondant de façon à ce que :
+   * la grille devienne un [carré latin](https://fr.wikipedia.org/wiki/Carr%C3%A9_latin);
+   * les sous-blocs de la grille de taille $`\sqrt{n}`$ deviennent des carrés latins (voir explications détaillées sur le net).
+   
+   Si la grille n'admet pas de solution, alors comme dans le cas du jeu de Taquin, il faudra que l'attribut `solution` de l'objet `Contexte` soit une `ArrayList` vide.
+
+   Ci-dessous, un exemple d'une grille de Sudoku donnée en entrée et une solution obtenue en sortie :
+
+   ```
+   +-----------------------------+     +-----------------------------+
+   | 8     6 | 2     9 | 1  4    |     | 8  3  6 | 2  5  9 | 1  4  7 |
+   | 9  2    |    7    | 8  5  6 |     | 9  2  1 | 3  7  4 | 8  5  6 |
+   |    4    | 8       |    2    |     | 7  4  5 | 8  6  1 | 3  2  9 |
+   |-----------------------------|     |-----------------------------|
+   | 3  6  2 | 9  8  5 | 7  1    |     | 3  6  2 | 9  8  5 | 7  1  4 |
+   | 1     7 |       3 |    8  2 |     | 1  5  7 | 6  4  3 | 9  8  2 |
+   |       9 | 1  2    | 6  3    |     | 4  8  9 | 1  2  7 | 6  3  5 |
+   |-----------------------------|     |-----------------------------|
+   |    7  4 | 5     8 | 2  9  3 |     | 6  7  4 | 5  1  8 | 2  9  3 |
+   | 5  9  8 | 7  3  2 |    6  1 |     | 5  9  8 | 7  3  2 | 4  6  1 |
+   | 2  1  3 | 4  9    |    7    |     | 2  1  3 | 4  9  6 | 5  7  8 |
+   +-----------------------------+     +-----------------------------+
+    ```
+    **Remarque :** Votre algorithme risque d'être lent si la grille est trop grande ou peu remplie. C'est normal, car il s'agit d'une exploration exhaustive de l'espace de recherche. Il n'y a pas de magie.
