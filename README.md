@@ -244,8 +244,12 @@ _1 &rightarrow; 2_, _1 &rightarrow; 2_ ne l'est pas.
    pour tout `JeuPuzzle`.
 
 6. Dessinez le diagramme de classes de cette partie du sujet. Vous y indiquerez toutes les classes du package `fr.umontpellier.iut.partie2`.
- 
+
+7. **Bonus :** Implémentez d'autres jeux de type puzzle. Par exemple, le jeu de [Sudoku](https://fr.wikipedia.org/wiki/Sudoku), où le programme prend en entrée une grille carrée `nxn` (généralement `9x9`) contenant des chiffres dans certaines cases. Le programme devra remplir les cases vides avec les chiffres correspondant de façon à ce que :
+   * la grille devienne un [carré latin](https://fr.wikipedia.org/wiki/Carr%C3%A9_latin);
+   * les sous-blocs de la grille de taille **$\sqrt{n}$** deviennent des carrés latins.
    
+    **Remarque :** Votre algorithme risque d'être lent si la grille est trop grande ou peu remplie. C'est normal, car il s'agit d'une exploration exhaustive de l'espace de recherche. Il n'y a pas de magie.
 
 
 **Remarque** : cette façon de programmer, en proposant une interface d'algorithme générale qui sera ensuite implémentée
