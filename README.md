@@ -208,7 +208,7 @@ historique du programme écrit précédemment, nous allons travailler dans un pa
  allez ignorer ces avertissements car c'est un moyen simple de garder une copie de ce que vous avez fait dans les
  exercices précédents. Pour ce faire, vous pouvez ajouter l'annotation `@SuppressWarnings("Duplicates")` à la ligne juste avant la déclaration de la classe nouvellement copiée.
 
-2. Observez que les fonctions "essentielles" de la classe `Taquin` sont suffisamment générales pour être appliquées sur d'autres jeux de même nature. Ajoutez donc dans l'interface `JeuPuzzle` les méthodes en question.
+2. Observez que les fonctions "essentielles" de la classe `Taquin` sont suffisamment générales pour être appliquées sur d'autres jeux de même nature. Ajoutez donc dans l'interface `JeuPuzzle` les méthodes en question. Réfléchissez au type de retour de la méthode `genererFils()` de cette interface en discutant avec votre enseignant.
 
 3. Faites en sorte que `Taquin` soit une implémentation de l'interface  `JeuPuzzle`  et modifiez votre programme de manière correspondante. Voici comment votre framework devra pouvoir être utilisé dans la classe cliente :
 
@@ -222,7 +222,7 @@ historique du programme écrit précédemment, nous allons travailler dans un pa
 Nous allons maintenant utiliser cette interface pour implémenter un autre jeu : [les tours de Hanoï](https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF).
 Dans ce jeu on considère 3 poteaux (dénommés "1" (à gauche), "2" (au milieu), et "3" (à droite)), ainsi que N disques
 de diamètres deux à deux distincts. Les disques sont troués en leur centre, de telle sorte que l'on puisse les enfiler
-sur les poteaux. Dans la situation initiale, les N disques sont sur le poteau gauche, et rangés "en pyramide" :
+sur les poteaux. Dans la situation initiale, les N disques sont sur le poteau gauche et rangés "en pyramide" :
 c'est-à-dire de telle sorte que les plus petits disques sont au-dessus. Le but du jeu est de déplacer cette pyramide sur
 le poteau de droite, en sachant qu'un coup légal consiste à 
    * choisir un poteau de départ, et prendre le disque du dessus 
