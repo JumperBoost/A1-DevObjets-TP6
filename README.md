@@ -251,7 +251,7 @@ différemment, et dont les implémentations pourront être interchangées "à la
 (ici `AppJeuxPuzzle`), fait référence au modèle de conception communément appelé
 [_Stratégie_](https://en.wikipedia.org/wiki/Strategy_pattern).
 
-7. **Bonus :** Implémentez d'autres jeux de type puzzle. Par exemple, le jeu de [Sudoku](https://fr.wikipedia.org/wiki/Sudoku), où le programme prend en entrée une grille carrée `nxn` (généralement `9x9`) contenant des chiffres dans certaines cases. Si une solution existe, alors le programme devra remplir les cases vides avec les chiffres correspondant de façon à ce que :
+7. Implémentez d'autres jeux de type puzzle. Par exemple, le jeu de [Sudoku](https://fr.wikipedia.org/wiki/Sudoku), où le programme prend en entrée une grille carrée `nxn` (généralement `9x9`) contenant des chiffres dans certaines cases. Si une solution existe, alors le programme devra remplir les cases vides avec les chiffres correspondant de façon à ce que :
    * la grille devienne un [carré latin](https://fr.wikipedia.org/wiki/Carr%C3%A9_latin);
    * les sous-blocs de la grille de taille $`\sqrt{n}`$ deviennent des carrés latins (voir explications détaillées sur le net).
    
@@ -274,4 +274,6 @@ différemment, et dont les implémentations pourront être interchangées "à la
    | 2  1  3 | 4  9    |    7    |     | 2  1  3 | 4  9  6 | 5  7  8 |
    +-----------------------------+     +-----------------------------+
     ```
-    **Remarque :** Votre algorithme risque d'être lent si la grille est trop grande ou peu remplie. C'est normal, car il s'agit d'une exploration exhaustive de l'espace de recherche. Il n'y a pas de magie. Donc dans vos tests utilisez en priorité des petites grilles (2x2) et ensuite des grilles 3x3 qui ont très peu de cases remplies.
+   La classe `Sudoku` vous est donnée dans le paquetage `fr.umontpellier.iut.partie2`. La méthode `estGagnant()` est à compléter et la méthode `genererFils()` est à écrire comme vous l'avez fait pour `Hanoi` et `Taquin`. Pensez à tester votre programme ! (quelques tests vous sont déjà proposés pour commencer)
+
+    **Remarque :** Votre algorithme de résolution risque d'être lent si la grille est trop grande ou peu remplie. C'est normal, car il s'agit d'une exploration exhaustive de l'espace de recherche. Il n'y a pas de magie. Donc dans vos tests utilisez en priorité des petites grilles (2x2) et ensuite des grilles 3x3 qui ont très peu de cases remplies.
