@@ -123,7 +123,7 @@ Pour un taquin `n X m` l'orientation imposée est la suivante : la ligne du haut
     **Astuce :** nous vous conseillons d'utiliser votre IDE pour redéfinir `equals(Object o)` et de prendre le temps de
     comprendre le code qu'il vous générera. Vous ajusterez cette redéfinition, en fonction de la logique du code de votre
     classe `Taquin`. Prêtez également attention à la redéfinition de la méthode `public int hashCode()` de `Object` qui
-    va être faite. Discutez-en également avec votre enseignant (voir également le [cours](https://www.lirmm.fr/~pvalicov/Cours/dev-objets/BPOO_Heritage_Polymorphisme_x4.pdf)).
+    va être faite. Discutez-en également avec votre enseignant (voir également le [cours](https://www.lirmm.fr/~pvalicov/Cours/dev-objets/Heritage_Polymorphisme_x4.pdf)).
     
 4. Écrivez le corps de la méthode  `public int[] trouverTrou()` afin qu'elle retourne un tableau `[i,j]` si `tableau[i][j]==0`. Cette méthode a pour prérequis que le taquin contient bien un seul 0.
    
