@@ -17,7 +17,9 @@ public class Taquin {
         throw new RuntimeException("Méthode non implémentée ! Effacez cette ligne et écrivez le code nécessaire");
     }
 
-    // retourne un tableau [i,j] si tableau[i][j]==0
+    /**
+     * @return un tableau [i,j] si tableau[i][j]==0
+     */
     public int[] trouverTrou() {
         throw new RuntimeException("Méthode non implémentée ! Effacez cette ligne et écrivez le code nécessaire");
     }
