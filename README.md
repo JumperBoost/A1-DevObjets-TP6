@@ -30,7 +30,7 @@
 ### Consignes
 - Sauf indication contraire, **tous** les attributs que vous allez déclarer doivent être privés (`private`).
 - La plupart des méthodes devraient être déclarées publiques (`public`). Vous pouvez tout de même déclarer et utiliser des méthodes `private` du moment qu'elles vous sont utiles et que votre programme fonctionne correctement.
-- Essayez de respecter les conventions de nommage *Java* (vues en [cours](https://www.lirmm.fr/~pvalicov/Cours/dev-objets/Generalites_x4.pdf) ou disponibles sur le site d'Oracle).
+- Essayez de respecter les conventions de nommage *Java* (vues en [cours](https://www.lirmm.fr/~pvalicov/Cours/dev-objets/Heritage_Polymorphisme_x4.pdf) ou disponibles sur le site d'Oracle).
 - **Sauf indication contraire, vous ne devrez pas modifier la signature des méthodes et des attributs des classes qui vous sont proposées.**
 - Vous essaierez de respecter au maximum les différents principes vus en cours :
   * principes [DRY](https://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas), KISS et [YAGNI](https://fr.wikipedia.org/wiki/YAGNI)
@@ -274,4 +274,4 @@ différemment, et dont les implémentations pourront être interchangées "à la
    | 2  1  3 | 4  9    |    7    |     | 2  1  3 | 4  9  6 | 5  7  8 |
    +-----------------------------+     +-----------------------------+
     ```
-    **Remarque :** Votre algorithme risque d'être lent si la grille est trop grande ou peu remplie. C'est normal, car il s'agit d'une exploration exhaustive de l'espace de recherche. Il n'y a pas de magie.
+    **Remarque :** Votre algorithme risque d'être lent si la grille est trop grande ou peu remplie. C'est normal, car il s'agit d'une exploration exhaustive de l'espace de recherche. Il n'y a pas de magie. Donc dans vos tests utilisez en priorité des petites grilles (2x2) et ensuite des grilles 3x3 qui ont très peu de cases remplies.
