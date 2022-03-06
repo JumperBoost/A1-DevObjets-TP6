@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Hanoi {
     public Hanoi(int taille) {
-        /* créé un hanoi avec la configuration suivante :
+        /* crée un hanoi avec la configuration suivante :
                 * sur la tour 1 les disques [taille,taille-1, .., 1]
                 * rien sur les tour 2 et 3 (elles sont vides)
 
