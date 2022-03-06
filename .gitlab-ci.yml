@@ -1,0 +1,8 @@
+stages:
+    - build
+
+compilation:
+    stage: build
+    script:
+        - echo "Compilation du projet"
+        - mvn compile
