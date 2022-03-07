@@ -251,10 +251,10 @@ différemment, et dont les implémentations pourront être interchangées "à la
 (ici `AppJeuxPuzzle`), fait référence au modèle de conception communément appelé
 [_Stratégie_](https://en.wikipedia.org/wiki/Strategy_pattern).
 
-7. Vous allez maintenant implémenter le jeu de [Sudoku](https://fr.wikipedia.org/wiki/Sudoku), où le programme prend en entrée une grille carrée `n2 x n2` (généralement `9x9`) contenant des chiffres dans certaines cases.
+7. Vous allez maintenant implémenter le jeu de [Sudoku](https://fr.wikipedia.org/wiki/Sudoku), où le programme prend en entrée une grille carrée $`n_{2} x n_{2}`$ (généralement `9x9`) contenant des chiffres dans certaines cases.
    Si une solution existe, alors le programme devra remplir les cases vides avec les chiffres correspondant de façon à ce que :
     * la grille devienne un [carré latin](https://fr.wikipedia.org/wiki/Carr%C3%A9_latin);
-    * les sous-blocs de la grille de taille $`n = \sqrt{n2}`$ deviennent des carrés latins (voir explications détaillées sur le net).
+    * les sous-blocs de la grille de taille $`n = \sqrt{n_{2}}`$ deviennent des carrés latins (voir explications détaillées sur le net).
 
    Si la grille n'admet pas de solution, alors comme dans le cas du jeu de Taquin, il faudra que l'attribut `solution` de l'objet `Contexte` soit une `ArrayList` vide.
 
@@ -275,7 +275,7 @@ différemment, et dont les implémentations pourront être interchangées "à la
    | 2  1  3 | 4  9    |    7    |     | 2  1  3 | 4  9  6 | 5  7  8 |
    +-----------------------------+     +-----------------------------+
     ```
-Complétez la classe `Sudoku` qui modélise ce jeu et qui doit implémenter l'interface `JeuPuzzle`. La grille de Sudoku est représentée par une matrice (tableau de tableaux) d'entiers. Chaque case contient 0 si elle est vide ou un entier entre 1 et `n2` (on suppose que les grilles fournies ou testées respectent ces pré-requis).
+Complétez la classe `Sudoku` qui modélise ce jeu et qui doit implémenter l'interface `JeuPuzzle`. La grille de Sudoku est représentée par une matrice (tableau de tableaux) d'entiers. Chaque case contient 0 si elle est vide ou un entier entre 1 et $`n_2`$ (on suppose que les grilles fournies ou testées respectent ces pré-requis).
 La classe `Sudoku` vous est donnée dans le paquetage `fr.umontpellier.iut.partie2`. La méthode `estGagnant()` est à compléter et la méthode `genererFils()` est à écrire comme vous l'avez fait pour `Hanoi` et `Taquin`.
 
 Vous devrez suivre la méthode suivante pour générer les fils d'une configuration :
@@ -283,14 +283,14 @@ Vous devrez suivre la méthode suivante pour générer les fils d'une configurat
 * Le fils d'une configuration/grille contient exactement une case remplie en plus que sa mère.
 * L'ensemble des fils retourné par `genererFils` correspond à toutes les grilles où une des cases vides est remplie avec un des nombres valides (pour sa ligne, sa colonne et son bloc).
 
-Un nombre (entre 1 et n2) placé dans une case (i,j) est valide s'il se trouve une seule fois sur sa ligne i, une seule fois sur sa colonne j et une seule fois sur son bloc d'appartenance.
+Un nombre (entre 1 et $`n_{2}`$) placé dans une case `(i,j)` est valide s'il se trouve une seule fois sur sa ligne `i`, une seule fois sur sa colonne `j` et une seule fois sur son bloc d'appartenance.
 
-Par exemple, si l'on considère la première case vide de la grille ci-dessus, aux coordonnées (0,1), on peut vérifier qu'il n'y a que deux nombres valides qui peuvent la remplir : 3 et 5, formant ainsi deux nouvelles grilles filles de la configuration de gauche.
+Par exemple, si l'on considère la première case vide de la grille ci-dessus, aux coordonnées `(0,1)`, on peut vérifier qu'il n'y a que deux nombres valides qui peuvent la remplir : 3 et 5, formant ainsi deux nouvelles grilles filles de la configuration de gauche.
 
-**Petit truc :** Les coordonnées de la case en haut à gauche du bloc d'appartenance d'une case (i,j) sont : (i - i%n, j - j%n), où n est la taille d'un côté du bloc (n=3 pour les Sudoku classiques 9x9).
+**Petit truc :** Les coordonnées de la case en haut à gauche du bloc d'appartenance d'une case `(i,j)` sont : `(i - i%n, j - j%n)`, où `n` est la taille d'un côté du bloc (`n=3` pour les Sudoku classiques `9x9`).
 
 8. Testez votre programme de Sudoku dans la classe `AppJeuxPuzzleTest` ou en ajoutant des tests dans la classe `SudokuTest`.
 
-**Remarque :** Votre algorithme risque d'être lent si la grille est trop grande ou peu remplie. C'est normal, car il s'agit d'une exploration exhaustive de l'espace de recherche. Il n'y a pas de magie. Dans vos tests, utilisez donc en priorité des petites grilles (4x4) et ensuite des grilles 9x9 qui ont beaucoup de cases remplies.
+**Remarque :** Votre algorithme risque d'être lent si la grille est trop grande ou peu remplie. C'est normal, car il s'agit d'une exploration exhaustive de l'espace de recherche. Il n'y a pas de magie. Dans vos tests, utilisez donc en priorité des petites grilles (`4x4`) et ensuite des grilles `9x9` qui ont beaucoup de cases remplies.
 
 9. Pour ce programme de Sudoku implantant `genererFils` comme demandé ci-dessus, le test d'appartenance d'un nouveau fils à l'ensemble `dejaVus` n'est pas utile. Pourquoi ? Que faudrait-il changer à la classe `JeuPuzzle` pour pouvoir prendre en compte ce type de jeu ?
