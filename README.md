@@ -67,8 +67,8 @@ On initialise `frontiere` et `dejaVus` avec la configuration initiale, et on mai
 est un sous-ensemble de `dejaVus`. À chaque étape, on extrait une configuration de la frontière, on en génère toutes
 les configurations "filles" c'est-à-dire les configurations atteignables en effectuant _un seul mouvement valide_, puis
 on ajoute à  `frontiere` et à `dejaVus`  toutes les configurations filles qui n'ont pas été déjà vues. Les ensembles de
-configurations _a)_, _b)_ et _c)_, délimités en pointillés, indiquent l'évolution de la frontière lors des 3 premières
-étapes (en supposant que lorsque la frontière était égale à _b)_, c'est la configuration `1 * 2 3 4` qui a été extraite).
+configurations **a)**, **b)** et **c)**, délimités en pointillés, indiquent l'évolution de la frontière lors des 3 premières
+étapes (en supposant que lorsque la frontière était égale à **b)**, c'est la configuration `1 * 2 3 4` qui a été extraite).
 Remarquez que les configurations barrées ne sont pas ajoutées à la `frontiere` (ni à `dejaVus`) puisqu'elles sont déjà
 présentes dans `dejaVus` au moment où l'on essaye de les ajouter. L'algorithme se termine lorsqu'il atteint une
 configuration gagnante, ou lorsque la frontière devient vide. Ainsi on obtient une structure arborescente (ou arbre
@@ -82,8 +82,8 @@ dimensions on peut montrer que la moitié des configurations initiales possibles
 L'algorithme expliqué ci-dessus permet de résoudre le taquin, à savoir obtenir la configuration finale gagnante si elle
 existe. Dans ce qui suit, on vous demandera également de stocker la _trace_ de la solution, qui indique les configurations
 obtenues à chaque étape intermédiaire pour arriver à la solution finale. Avoir la trace est intéressant pour
-un utilisateur, afin de voir la stratégie à adopter pour résoudre le puzzle à partir de la configuration initiale. C'est aussi pratique pour vérifier si votre programme fonctionne correctement... La trace de la solution va correspondre à une liste chaînée de configurations construite de la façon suivante : lorsqu'une configuration `c2` est générée à partir d'une configuration `c1`, on mémorisera que
-le "_père_" de `c2` est `c1`. Un maillon de cette liste chaînée est donc un couple (_configuration taquin, couple parent_).
+un utilisateur, afin de voir la stratégie à adopter pour résoudre le puzzle à partir de la configuration initiale. C'est aussi pratique pour vérifier si votre programme fonctionne correctement... La trace de la solution va correspondre à une liste chaînée de configurations construite de la façon suivante : lorsqu'une configuration $`c_{2}`$ est générée à partir d'une configuration $`c_{1}`$, on mémorisera que
+le "_père_" de $`c_{2}`$ est $`c_{1}`$. Un maillon de cette liste chaînée est donc un couple (_configuration taquin, couple parent_).
 
 Dans tout le TP, nous vous invitons à vérifier au fur et à mesure que votre code est correct.
 Pour cela utilisez les tests fournis (pour certaines questions seulement), et pensez à en écrire d'autres. Également pensez à compléter la méthode `main(String args[])` des classes principales (`fr.umontpellier.iut.partie1.AppTaquin` et `fr.umontpellier.iut.partie2.AppJeuxPuzzle`).
@@ -150,8 +150,8 @@ de la façon suivante :
    qui correspond donc à la description de la solution trouvée
    
 2. Complétez la méthode `public void mettreAJour(ArrayList<Couple> frontiere, ArrayList<Taquin> dejaVus)` pour qu'elle respecte la spécification ci-dessous. Avant de lire cette spécification, considérons l'exemple la Figure 1 dans lequel 
-      * `this` représente le couple dont le taquin est celui de gauche dans la frontière _b)_ (et son prédécesseur pointe sur la racine)  
-      * `frontiere` est l'ensemble d'objets `Couple` dont les taquins sont ceux de _b)_ 
+      * `this` représente le couple dont le taquin est celui de gauche dans la frontière **b)** (et son prédécesseur pointe sur la racine)  
+      * `frontiere` est l'ensemble d'objets `Couple` dont les taquins sont ceux de **b)**
       * les taquins fils du taquin contenu dans `this` sont `* 1 2 3 4` et `1 2 * 3 4`
       * `dejaVus` est l'ensemble des 3 taquins de **a) U b)**
        
@@ -220,23 +220,22 @@ historique du programme écrit précédemment, nous allons travailler dans un pa
 ```
 
 Nous allons maintenant utiliser cette interface pour implémenter un autre jeu : [les tours de Hanoï](https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF).
-Dans ce jeu on considère 3 poteaux (dénommés "1" (à gauche), "2" (au milieu), et "3" (à droite)), ainsi que N disques
-de diamètres deux à deux distincts. Les disques sont troués en leur centre, de telle sorte que l'on puisse les enfiler
-sur les poteaux. Dans la situation initiale, les N disques sont sur le poteau gauche et rangés "en pyramide" :
+Dans ce jeu on considère 3 poteaux (dénommés "1" (à gauche), "2" (au milieu), et "3" (à droite)), ainsi que $`n`$ disques de diamètres deux à deux distincts. Les disques sont troués en leur centre, de telle sorte que l'on puisse les enfiler
+sur les poteaux. Dans la situation initiale, les $`n`$ disques sont sur le poteau gauche et rangés "en pyramide" :
 c'est-à-dire de telle sorte que les plus petits disques sont au-dessus. Le but du jeu est de déplacer cette pyramide sur
 le poteau de droite, en sachant qu'un coup légal consiste à 
-   * choisir un poteau de départ, et prendre le disque du dessus 
-   * choisir un poteau d'arrivée, et déposer le disque au sommet
+   * choisir un poteau de départ et prendre le disque du dessus 
+   * choisir un poteau d'arrivée et déposer le disque au sommet
    * s'assurer que sur chaque poteau les disques restent rangés en pyramide (autrement dit, un disque ne peut être placé que sur un disque de plus grand diamètre).
 
-Par exemple, pour N=3 la succession de coups _1 &rightarrow; 2_ (signifiant prendre le disque au sommet du poteau 1 et
+Par exemple, pour $`n=3`$ la succession de coups _1 &rightarrow; 2_ (signifiant prendre le disque au sommet du poteau 1 et
 le placer au sommet du poteau 2) _1 &rightarrow; 3_, _2 &rightarrow; 3_ est légale, alors que la succession de coups
 _1 &rightarrow; 2_, _1 &rightarrow; 2_ ne l'est pas.
 
 4. Complétez la classe `Hanoi` qui modélise ce jeu et qui doit implémenter l'interface `JeuPuzzle`. Pour modéliser l'état
    du jeu, on suggère d'utiliser trois `ArrayList<Integer>` contenant chacune les numéros des disques présents sur le poteau
    correspondant. Vous pouvez également ajouter un attribut `private int taille` pour indiquer le nombre de disques.
-   Une configuration du jeu correspondrait aux 3 poteaux contenant en tout les N disques. Chaque mouvement de disque
+   Une configuration du jeu correspondrait aux 3 poteaux contenant en tout les $`n`$ disques. Chaque mouvement de disque
    autorisé d'un poteau vers un autre est une nouvelle configuration (nouveau fils donc). 
  
 5. Modifiez la classe principale (`AppJeuxPuzzle`) pour maintenant tester la résolution de Hanoï (commencez par 3 disques sur le poteau gauche).
@@ -275,22 +274,21 @@ différemment, et dont les implémentations pourront être interchangées "à la
    | 2  1  3 | 4  9    |    7    |     | 2  1  3 | 4  9  6 | 5  7  8 |
    +-----------------------------+     +-----------------------------+
     ```
-Complétez la classe `Sudoku` qui modélise ce jeu et qui doit implémenter l'interface `JeuPuzzle`. La grille de Sudoku est représentée par une matrice (tableau de tableaux) d'entiers. Chaque case contient 0 si elle est vide ou un entier entre 1 et $`n_2`$ (on suppose que les grilles fournies ou testées respectent ces pré-requis).
-La classe `Sudoku` vous est donnée dans le paquetage `fr.umontpellier.iut.partie2`. La méthode `estGagnant()` est à compléter et la méthode `genererFils()` est à écrire comme vous l'avez fait pour `Hanoi` et `Taquin`.
+    Complétez la classe `fr.umontpellier.iut.partie2.Sudoku`, qui modélise ce jeu et qui doit implémenter l'interface `JeuPuzzle`. La grille de Sudoku est représentée par une matrice (tableau de tableaux) d'entiers. Chaque case contient 0 si elle est vide ou un entier entre 1 et $`n_2`$ (on suppose que les grilles fournies ou testées respectent ces pré-requis). La méthode `estGagnant()` est à compléter et la méthode `genererFils()` est à écrire comme vous l'avez fait pour `Hanoi` et `Taquin`.
 
-Vous devrez suivre la méthode suivante pour générer les fils d'une configuration :
+    Vous devrez suivre la méthode suivante pour générer les fils d'une configuration :
 
-* Le fils d'une configuration/grille contient exactement une case remplie en plus que sa mère.
-* L'ensemble des fils retourné par `genererFils()` correspond à toutes les grilles obtenues à partir de la configuration courante, où une des cases vides est remplie avec un des nombres valides (pour sa ligne, sa colonne et son bloc).
+   * Le fils d'une configuration/grille contient exactement une case remplie en plus que sa mère.
+   * L'ensemble des fils retourné par `genererFils()` correspond à toutes les grilles obtenues à partir de la configuration courante, où une des cases vides est remplie avec un des nombres valides (pour sa ligne, sa colonne et son bloc).
 
-Un nombre (entre 1 et $`n_{2}`$) placé dans une case `(i,j)` est valide s'il se trouve une seule fois sur sa ligne `i`, une seule fois sur sa colonne `j` et une seule fois sur son bloc d'appartenance.
+    Un nombre (entre 1 et $`n_{2}`$) placé dans une case `(i,j)` est valide s'il se trouve une seule fois sur sa ligne `i`, une seule fois sur sa colonne `j` et une seule fois sur son bloc d'appartenance.
 
-Par exemple, si l'on considère la première case vide de la grille ci-dessus, aux coordonnées `(0,1)`, on peut vérifier qu'il n'y a que deux nombres valides qui peuvent la remplir : 3 et 5, formant ainsi deux nouvelles grilles filles de la configuration de gauche.
+    Par exemple, si l'on considère la première case vide de la grille ci-dessus, aux coordonnées `(0,1)`, on peut vérifier qu'il n'y a que deux nombres valides qui peuvent la remplir : 3 et 5, formant ainsi deux nouvelles grilles filles de la configuration de gauche.
 
-**Petit truc :** Les coordonnées de la case en haut à gauche du bloc d'appartenance d'une case `(i,j)` sont : `(i - i%n, j - j%n)`, où $`n`$ est la taille d'un côté du bloc ($`n=3`$ pour les Sudoku classiques $`9 \times 9`$).
+    **Petit truc :** Les coordonnées de la case en haut à gauche du bloc d'appartenance d'une case `(i,j)` sont : `(i - i%n, j - j%n)`, où $`n`$ est la taille d'un côté du bloc ($`n=3`$ pour les Sudoku classiques $`9 \times 9`$).
 
-8. Testez votre programme de Sudoku dans la classe `AppJeuxPuzzleTest` ou en ajoutant des tests dans la classe `SudokuTest`.
+8. Vérifiez le bon fonctionnement de votre programme en écrivant des tests unitaires dans la classe `SudokuTest`. Vous pouvez simuler votre programme pour vous amuser dans la classe `AppJeuxPuzzle`.
 
-**Remarque :** Votre algorithme risque d'être lent si la grille est trop grande ou peu remplie. C'est normal, car il s'agit d'une exploration exhaustive de l'espace de recherche. Il n'y a pas de magie. Dans vos tests, utilisez donc en priorité des petites grilles ($`4 \times 4`$) et ensuite des grilles $`9 \times 9`$ qui ont beaucoup de cases remplies.
+    **Remarque :** Votre algorithme risque d'être lent si la grille est trop grande ou peu remplie. C'est normal, car il s'agit d'une exploration exhaustive de l'espace de recherche. Il n'y a pas de magie. Dans vos tests, utilisez donc en priorité des petites grilles ($`4 \times 4`$) et ensuite des grilles $`9 \times 9`$ qui ont beaucoup de cases remplies.
 
-9. Pour ce programme de Sudoku implantant `genererFils` comme demandé ci-dessus, le test d'appartenance d'un nouveau fils à l'ensemble `dejaVus` n'est pas utile. Pourquoi ? Que faudrait-il changer à la classe `JeuPuzzle` pour pouvoir prendre en compte ce type de jeu ?
+9. Pour ce programme de Sudoku implantant `genererFils()` comme demandé ci-dessus, le test d'appartenance d'un nouveau fils à l'ensemble `dejaVus` n'est pas utile. Pourquoi ? Que faudrait-il changer à la classe `JeuPuzzle` pour pouvoir prendre en compte ce type de jeu ?
