@@ -82,8 +82,8 @@ dimensions on peut montrer que la moitié des configurations initiales possibles
 L'algorithme expliqué ci-dessus permet de résoudre le taquin, à savoir obtenir la configuration finale gagnante si elle
 existe. Dans ce qui suit, on vous demandera également de stocker la _trace_ de la solution, qui indique les configurations
 obtenues à chaque étape intermédiaire pour arriver à la solution finale. Avoir la trace est intéressant pour
-un utilisateur, afin de voir la stratégie à adopter pour résoudre le puzzle à partir de la configuration initiale. C'est aussi pratique pour vérifier si votre programme fonctionne correctement... La trace de la solution va correspondre à une liste chaînée de configurations construite de la façon suivante : lorsqu'une configuration $c_{2}$ est générée à partir d'une configuration $c_{1}$, on mémorisera que
-le "_père_" de $c_{2}$ est $c_{1}$. Un maillon de cette liste chaînée est donc un couple (_configuration taquin, couple parent_).
+un utilisateur, afin de voir la stratégie à adopter pour résoudre le puzzle à partir de la configuration initiale. C'est aussi pratique pour vérifier si votre programme fonctionne correctement... La trace de la solution va correspondre à une liste chaînée de configurations construite de la façon suivante : lorsqu'une configuration $`c_{2}`$ est générée à partir d'une configuration $`c_{1}`$, on mémorisera que
+le "_père_" de $`c_{2}`$ est $`c_{1}`$. Un maillon de cette liste chaînée est donc un couple (_configuration taquin, couple parent_).
 
 Dans tout le TP, nous vous invitons à vérifier au fur et à mesure que votre code est correct.
 Pour cela utilisez les tests fournis (pour certaines questions seulement), et pensez à en écrire d'autres. Également pensez à compléter la méthode `main(String args[])` des classes principales (`fr.umontpellier.iut.partie1.AppTaquin` et `fr.umontpellier.iut.partie2.AppJeuxPuzzle`).
@@ -104,10 +104,10 @@ La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut.partie1
 Complétez la classe `Taquin` comme suit :
  
 1. Redéfinissez la méthode `toString()` dans la classe `Taquin` afin d'afficher le contenu de son plateau.
-Pour un taquin $n \times m$ l'orientation imposée est la suivante : la ligne du haut contient, de gauche à droite, les cases [0][0], [0][1], ... , [0][m-1], et la case en bas à droite est donc [n-1][m-1].
+Pour un taquin $`n \times m`$ l'orientation imposée est la suivante : la ligne du haut contient, de gauche à droite, les cases [0][0], [0][1], ... , [0][m-1], et la case en bas à droite est donc [n-1][m-1].
 
 2. Complétez la méthode `public boolean estGagnant()` afin qu'elle retourne _vrai_ si le plateau est dans une
-   configuration gagnante et _faux_ sinon. Voici les configurations gagnantes pour des taquins $3 \times 3$ et $4 \times 4$:
+   configuration gagnante et _faux_ sinon. Voici les configurations gagnantes pour des taquins $`3 \times 3`$ et $`4 \times 4`$:
 
     ```
     +-----+    +---------------+
@@ -214,22 +214,22 @@ Maintenant nous allons généraliser cette stratégie à la résolution d'autres
 ```
 
 Nous allons maintenant utiliser cette interface pour implémenter un autre jeu : [les tours de Hanoï](https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF).
-Dans ce jeu on considère 3 poteaux (dénommés "1" (à gauche), "2" (au milieu), et "3" (à droite)), ainsi que $n$ disques de diamètres deux à deux distincts. Les disques sont troués en leur centre, de telle sorte que l'on puisse les enfiler
-sur les poteaux. Dans la situation initiale, les $n$ disques sont sur le poteau gauche et rangés "en pyramide" :
+Dans ce jeu on considère 3 poteaux (dénommés "1" (à gauche), "2" (au milieu), et "3" (à droite)), ainsi que $`n`$ disques de diamètres deux à deux distincts. Les disques sont troués en leur centre, de telle sorte que l'on puisse les enfiler
+sur les poteaux. Dans la situation initiale, les $`n`$ disques sont sur le poteau gauche et rangés "en pyramide" :
 c'est-à-dire de telle sorte que les plus petits disques sont au-dessus. Le but du jeu est de déplacer cette pyramide sur
 le poteau de droite, en sachant qu'un coup légal consiste à 
    * choisir un poteau de départ et prendre le disque du dessus 
    * choisir un poteau d'arrivée et déposer le disque au sommet
    * s'assurer que sur chaque poteau les disques restent rangés en pyramide (autrement dit, un disque ne peut être placé que sur un disque de plus grand diamètre).
 
-Par exemple, pour $n=3$ la succession de coups _1 &rightarrow; 2_ (signifiant prendre le disque au sommet du poteau 1 et
+Par exemple, pour $`n=3`$ la succession de coups _1 &rightarrow; 2_ (signifiant prendre le disque au sommet du poteau 1 et
 le placer au sommet du poteau 2) _1 &rightarrow; 3_, _2 &rightarrow; 3_ est légale, alors que la succession de coups
 _1 &rightarrow; 2_, _1 &rightarrow; 2_ ne l'est pas.
 
 4. Complétez la classe `Hanoi` qui modélise ce jeu et qui doit implémenter l'interface `JeuPuzzle`. Pour modéliser l'état
    du jeu, on suggère d'utiliser trois `ArrayList<Integer>` contenant chacune les numéros des disques présents sur le poteau
    correspondant. Vous pouvez également ajouter un attribut `private int taille` pour indiquer le nombre de disques.
-   Une configuration du jeu correspondrait aux 3 poteaux contenant en tout les $n$ disques. Chaque mouvement de disque
+   Une configuration du jeu correspondrait aux 3 poteaux contenant en tout les $`n`$ disques. Chaque mouvement de disque
    autorisé d'un poteau vers un autre est une nouvelle configuration (nouveau fils donc). 
  
 5. Modifiez la classe principale (`AppJeuxPuzzle`) pour maintenant tester la résolution de Hanoï (commencez par 3 disques sur le poteau gauche).
@@ -244,10 +244,10 @@ différemment, et dont les implémentations pourront être interchangées "à la
 (ici `AppJeuxPuzzle`), fait référence au modèle de conception communément appelé
 [_Stratégie_](https://en.wikipedia.org/wiki/Strategy_pattern).
 
-7. Vous allez maintenant implémenter le jeu de [Sudoku](https://fr.wikipedia.org/wiki/Sudoku), où le programme prend en entrée une grille carrée $n_{2} \times n_{2}$ (généralement $9 \times 9$) contenant des chiffres dans certaines cases.
+7. Vous allez maintenant implémenter le jeu de [Sudoku](https://fr.wikipedia.org/wiki/Sudoku), où le programme prend en entrée une grille carrée $`n_{2} \times n_{2}`$ (généralement $`9 \times 9`$) contenant des chiffres dans certaines cases.
    Si une solution existe, alors le programme devra remplir les cases vides avec les chiffres correspondant de façon à ce que :
     * la grille devienne un [carré latin](https://fr.wikipedia.org/wiki/Carr%C3%A9_latin);
-    * les sous-blocs de la grille de taille $n = \sqrt{n_{2}}$ deviennent des carrés latins (voir explications détaillées sur le net).
+    * les sous-blocs de la grille de taille $`n = \sqrt{n_{2}}`$ deviennent des carrés latins (voir explications détaillées sur le net).
 
    Si la grille n'admet pas de solution, alors comme dans le cas du jeu de Taquin, il faudra que l'attribut `solution` de l'objet `Contexte` soit une `ArrayList` vide.
 
@@ -268,21 +268,21 @@ différemment, et dont les implémentations pourront être interchangées "à la
    | 2  1  3 | 4  9    |    7    |     | 2  1  3 | 4  9  6 | 5  7  8 |
    +-----------------------------+     +-----------------------------+
     ```
-    Complétez la classe `fr.umontpellier.iut.partie2.Sudoku`, qui modélise ce jeu et qui doit implémenter l'interface `JeuPuzzle`. La grille de Sudoku est représentée par une matrice (tableau de tableaux) d'entiers. Chaque case contient 0 si elle est vide ou un entier entre 1 et $n_2$ (on suppose que les grilles fournies ou testées respectent ces pré-requis). La méthode `estGagnant()` est à compléter et la méthode `genererFils()` est à écrire comme vous l'avez fait pour `Hanoi` et `Taquin`.
+    Complétez la classe `fr.umontpellier.iut.partie2.Sudoku`, qui modélise ce jeu et qui doit implémenter l'interface `JeuPuzzle`. La grille de Sudoku est représentée par une matrice (tableau de tableaux) d'entiers. Chaque case contient 0 si elle est vide ou un entier entre 1 et $`n_2`$ (on suppose que les grilles fournies ou testées respectent ces pré-requis). La méthode `estGagnant()` est à compléter et la méthode `genererFils()` est à écrire comme vous l'avez fait pour `Hanoi` et `Taquin`.
 
     Vous devrez suivre la méthode suivante pour générer les fils d'une configuration :
 
    * Le fils d'une configuration/grille contient exactement une case remplie en plus que sa mère.
    * L'ensemble des fils retourné par `genererFils()` correspond à toutes les grilles obtenues à partir de la configuration courante, où une des cases vides est remplie avec un des nombres valides (pour sa ligne, sa colonne et son bloc).
 
-    Un nombre (entre 1 et $n_{2}$) placé dans une case `(i,j)` est valide s'il se trouve une seule fois sur sa ligne `i`, une seule fois sur sa colonne `j` et une seule fois sur son bloc d'appartenance.
+    Un nombre (entre 1 et $`n_{2}`$) placé dans une case `(i,j)` est valide s'il se trouve une seule fois sur sa ligne `i`, une seule fois sur sa colonne `j` et une seule fois sur son bloc d'appartenance.
 
     Par exemple, si l'on considère la première case vide de la grille ci-dessus, aux coordonnées `(0,1)`, on peut vérifier qu'il n'y a que deux nombres valides qui peuvent la remplir : 3 et 5, formant ainsi deux nouvelles grilles filles de la configuration de gauche.
 
-    **Petit truc :** Les coordonnées de la case en haut à gauche du bloc d'appartenance d'une case `(i,j)` sont : `(i - i%n, j - j%n)`, où $n$ est la taille d'un côté du bloc ($n=3$ pour les Sudoku classiques $9 \times 9$).
+    **Petit truc :** Les coordonnées de la case en haut à gauche du bloc d'appartenance d'une case `(i,j)` sont : `(i - i%n, j - j%n)`, où $`n`$ est la taille d'un côté du bloc ($`n=3`$ pour les Sudoku classiques $`9 \times 9`$).
 
 8. Vérifiez le bon fonctionnement de votre programme en écrivant des tests unitaires dans la classe `SudokuTest`. Vous pouvez simuler votre programme pour vous amuser dans la classe `AppJeuxPuzzle`.
 
-    **Remarque :** Votre algorithme risque d'être lent si la grille est trop grande ou peu remplie. C'est normal, car il s'agit d'une exploration exhaustive de l'espace de recherche. Il n'y a pas de magie. Dans vos tests, utilisez donc en priorité des petites grilles ($4 \times 4$) et ensuite des grilles $9 \times 9$ qui ont beaucoup de cases remplies.
+    **Remarque :** Votre algorithme risque d'être lent si la grille est trop grande ou peu remplie. C'est normal, car il s'agit d'une exploration exhaustive de l'espace de recherche. Il n'y a pas de magie. Dans vos tests, utilisez donc en priorité des petites grilles ($`4 \times 4`$) et ensuite des grilles $`9 \times 9`$ qui ont beaucoup de cases remplies.
 
 9. Pour ce programme de Sudoku implantant `genererFils()` comme demandé ci-dessus, le test d'appartenance d'un nouveau fils à l'ensemble `dejaVus` n'est pas utile. Pourquoi ? Que faudrait-il changer à la classe `JeuPuzzle` pour pouvoir prendre en compte ce type de jeu ?
