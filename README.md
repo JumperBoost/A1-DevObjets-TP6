@@ -107,7 +107,7 @@ Complétez la classe `Taquin` comme suit :
 Pour un taquin `n X m` l'orientation imposée est la suivante : la ligne du haut contient, de gauche à droite, les cases [0][0], [0][1], ... , [0][m-1], et la case en bas à droite est donc [n-1][m-1].
 
 2. Complétez la méthode `public boolean estGagnant()` afin qu'elle retourne _vrai_ si le plateau est dans une
-   configuration gagnante et _faux_ sinon. Voici les configurations gagnantes pour des taquins `3 X 3` et `4 X 4`:
+   configuration gagnante et _faux_ sinon. Voici les configurations gagnantes pour des taquins $`3 \times 3`$ et $`4 \times 4`$:
 
     ```
     +-----+    +---------------+
@@ -153,7 +153,7 @@ de la façon suivante :
       * `this` représente le couple dont le taquin est celui de gauche dans la frontière _b)_ (et son prédécesseur pointe sur la racine)  
       * `frontiere` est l'ensemble d'objets `Couple` dont les taquins sont ceux de _b)_ 
       * les taquins fils du taquin contenu dans `this` sont `* 1 2 3 4` et `1 2 * 3 4`
-      * `dejaVus` est l'ensemble des 3 taquins de _a)_ U _b)_.
+      * `dejaVus` est l'ensemble des 3 taquins de **a) U b)**
        
       Dans cet exemple, `mettreAJour(frontiere,dejaVus)` doit ajouter le taquin `t = * 1 2 3 4` à `dejaVus`
    ainsi que le couple `(t,this)` à `frontiere`, et ne rien faire pour le taquin `1 2 * 3 4` puisqu'il est déjà dans `dejaVus`.
@@ -251,7 +251,7 @@ différemment, et dont les implémentations pourront être interchangées "à la
 (ici `AppJeuxPuzzle`), fait référence au modèle de conception communément appelé
 [_Stratégie_](https://en.wikipedia.org/wiki/Strategy_pattern).
 
-7. Vous allez maintenant implémenter le jeu de [Sudoku](https://fr.wikipedia.org/wiki/Sudoku), où le programme prend en entrée une grille carrée $`n_{2} x n_{2}`$ (généralement `9x9`) contenant des chiffres dans certaines cases.
+7. Vous allez maintenant implémenter le jeu de [Sudoku](https://fr.wikipedia.org/wiki/Sudoku), où le programme prend en entrée une grille carrée $`n_{2} \times n_{2}`$ (généralement $`9 \times 9`$) contenant des chiffres dans certaines cases.
    Si une solution existe, alors le programme devra remplir les cases vides avec les chiffres correspondant de façon à ce que :
     * la grille devienne un [carré latin](https://fr.wikipedia.org/wiki/Carr%C3%A9_latin);
     * les sous-blocs de la grille de taille $`n = \sqrt{n_{2}}`$ deviennent des carrés latins (voir explications détaillées sur le net).
@@ -281,16 +281,16 @@ La classe `Sudoku` vous est donnée dans le paquetage `fr.umontpellier.iut.parti
 Vous devrez suivre la méthode suivante pour générer les fils d'une configuration :
 
 * Le fils d'une configuration/grille contient exactement une case remplie en plus que sa mère.
-* L'ensemble des fils retourné par `genererFils` correspond à toutes les grilles où une des cases vides est remplie avec un des nombres valides (pour sa ligne, sa colonne et son bloc).
+* L'ensemble des fils retourné par `genererFils()` correspond à toutes les grilles obtenues à partir de la configuration courante, où une des cases vides est remplie avec un des nombres valides (pour sa ligne, sa colonne et son bloc).
 
 Un nombre (entre 1 et $`n_{2}`$) placé dans une case `(i,j)` est valide s'il se trouve une seule fois sur sa ligne `i`, une seule fois sur sa colonne `j` et une seule fois sur son bloc d'appartenance.
 
 Par exemple, si l'on considère la première case vide de la grille ci-dessus, aux coordonnées `(0,1)`, on peut vérifier qu'il n'y a que deux nombres valides qui peuvent la remplir : 3 et 5, formant ainsi deux nouvelles grilles filles de la configuration de gauche.
 
-**Petit truc :** Les coordonnées de la case en haut à gauche du bloc d'appartenance d'une case `(i,j)` sont : `(i - i%n, j - j%n)`, où `n` est la taille d'un côté du bloc (`n=3` pour les Sudoku classiques `9x9`).
+**Petit truc :** Les coordonnées de la case en haut à gauche du bloc d'appartenance d'une case `(i,j)` sont : `(i - i%n, j - j%n)`, où $`n`$ est la taille d'un côté du bloc ($`n=3`$ pour les Sudoku classiques $`9 \times 9`$).
 
 8. Testez votre programme de Sudoku dans la classe `AppJeuxPuzzleTest` ou en ajoutant des tests dans la classe `SudokuTest`.
 
-**Remarque :** Votre algorithme risque d'être lent si la grille est trop grande ou peu remplie. C'est normal, car il s'agit d'une exploration exhaustive de l'espace de recherche. Il n'y a pas de magie. Dans vos tests, utilisez donc en priorité des petites grilles (`4x4`) et ensuite des grilles `9x9` qui ont beaucoup de cases remplies.
+**Remarque :** Votre algorithme risque d'être lent si la grille est trop grande ou peu remplie. C'est normal, car il s'agit d'une exploration exhaustive de l'espace de recherche. Il n'y a pas de magie. Dans vos tests, utilisez donc en priorité des petites grilles ($`4 \times 4`$) et ensuite des grilles $`9 \times 9`$ qui ont beaucoup de cases remplies.
 
 9. Pour ce programme de Sudoku implantant `genererFils` comme demandé ci-dessus, le test d'appartenance d'un nouveau fils à l'ensemble `dejaVus` n'est pas utile. Pourquoi ? Que faudrait-il changer à la classe `JeuPuzzle` pour pouvoir prendre en compte ce type de jeu ?
