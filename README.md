@@ -36,7 +36,7 @@
   * principes [DRY](https://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas), KISS et [YAGNI](https://fr.wikipedia.org/wiki/YAGNI)
   * encapsulation de vos classes
   * contrat des classes parentes par héritage
-- Des commentaires sont donnés dans le code qui vous est fourni afin de vous aider à comprendre ce que vous êtes censés de programmer.
+- Des commentaires sont donnés dans le code qui vous est fourni afin de vous aider à comprendre ce que vous êtes censés programmer.
 
 
 ## TP6
@@ -71,7 +71,7 @@ configurations **a)**, **b)** et **c)**, délimités en pointillés, indiquent l
 étapes (en supposant que lorsque la frontière était égale à **b)**, c'est la configuration `1 * 2 3 4` qui a été extraite).
 Remarquez que les configurations barrées ne sont pas ajoutées à la `frontiere` (ni à `dejaVus`) puisqu'elles sont déjà
 présentes dans `dejaVus` au moment où l'on essaye de les ajouter. L'algorithme se termine lorsqu'il atteint une
-configuration gagnante, ou lorsque la frontière devient vide. Ainsi on obtient une structure arborescente (ou arbre
+configuration gagnante, ou lorsque la frontière devient vide. Ainsi, on obtient une structure arborescente (ou arbre
 d'exploration) représentant l'ensemble de mouvements valides obtenus à partir de la racine (configuration initiale). 
 
 **Remarque** : certaines configurations du taquin ne sont pas résolubles. En une dimension il est facile de voir que les
@@ -86,7 +86,7 @@ un utilisateur, afin de voir la stratégie à adopter pour résoudre le puzzle �
 le "_père_" de $`c_{2}`$ est $`c_{1}`$. Un maillon de cette liste chaînée est donc un couple (_configuration taquin, couple parent_).
 
 Dans tout le TP, nous vous invitons à vérifier au fur et à mesure que votre code est correct.
-Pour cela utilisez les tests fournis (pour certaines questions seulement), et pensez à en écrire d'autres. Également pensez à compléter la méthode `main(String args[])` des classes principales (`fr.umontpellier.iut.partie1.AppTaquin` et `fr.umontpellier.iut.partie2.AppJeuxPuzzle`).
+Pour cela, utilisez les tests fournis (pour certaines questions seulement), et pensez à en écrire d'autres. Également pensez à compléter la méthode `main(String args[])` des classes principales (`fr.umontpellier.iut.partie1.AppTaquin` et `fr.umontpellier.iut.partie2.AppJeuxPuzzle`).
 
 ### Partie 1
 #### Exercice 1
@@ -123,7 +123,7 @@ Pour un taquin $`n \times m`$ l'orientation imposée est la suivante : la ligne 
     **Astuce :** nous vous conseillons d'utiliser votre IDE pour redéfinir `equals(Object o)` et de prendre le temps de
     comprendre le code qu'il vous générera. Vous ajusterez cette redéfinition, en fonction de la logique du code de votre
     classe `Taquin`. Prêtez également attention à la redéfinition de la méthode `public int hashCode()` de `Object` qui
-    va être faite. Discutez-en également avec votre enseignant (voir également le [cours](https://www.lirmm.fr/~pvalicov/Cours/dev-objets/Heritage_Polymorphisme_x4.pdf)).
+    va être faite. Discutez-en avec votre enseignant (voir aussi le [cours](https://www.lirmm.fr/~pvalicov/Cours/dev-objets/Heritage_Polymorphisme_x4.pdf)).
     
 4. Écrivez le corps de la méthode  `public int[] trouverTrou()` afin qu'elle retourne un tableau `[i,j]` si `tableau[i][j]==0`. Cette méthode a pour prérequis que le taquin contient bien un seul 0.
    
@@ -171,7 +171,7 @@ La classe `Contexte` va encapsuler l'algorithme général de résolution du jeu.
 
 
 1. Complétez la méthode `public void resoudre()` afin qu'elle affecte à l'attribut `solution` une `ArrayList<Taquin>` vide
-si `taquin` n'est pas faisable, ou la liste des positions successives qui mènent à un état gagnant sinon.
+si `taquin` n'est pas faisable ou la liste des positions successives qui mènent à un état gagnant sinon.
 
 2. Dans votre méthode `resoudre()`, il y a plusieurs façons de gérer votre frontière :
    * comme une _pile_ : le taquin extrait à chaque nouvelle étape est le dernier taquin à avoir été ajouté. Dans ce cas
@@ -192,14 +192,13 @@ Ensuite, testez avec un taquin quelconque. Si votre algorithme s'exécute pendan
 
 ### Partie 2 - création d'un framework de résolution de puzzle
 
-Maintenant nous allons généraliser cette stratégie à la résolution d'autres jeux de type "puzzle". Afin de garder un historique du programme écrit précédemment, nous allons travailler dans un package différent.
+Maintenant, nous allons généraliser cette stratégie à la résolution d'autres jeux de type "puzzle". Afin de garder un historique du programme écrit précédemment, nous allons travailler dans un package différent.
 
 1. Copiez/collez les classes `Taquin`, `Couple` et `Contexte` dans le package `fr.umontpellier.iut.partie2`. Pour faire
  cela correctement, la manière la plus simple est de sélectionner **en même temps** les 3 classes dans l'IDE
- &rightarrow; _Copier_  &rightarrow; _Coller_ dans le package. Quelle que soit la manière dont vous allez procéder, l'IDE
+ &rightarrow; _Copier_  &rightarrow; _Coller_ dans le package. Quelle que soit la façon dont vous allez procéder, l'IDE
  vous signalera des duplications de code (logique, car c'est ce que vous avez fait), mais _dans ce cas_ (et pour
- _ce genre de duplications demandées_) vous
- allez ignorer ces avertissements, car c'est un moyen simple de garder une copie de ce que vous avez fait dans les
+ _ce genre de duplications demandées_) vous allez ignorer ces avertissements, car c'est un moyen simple de garder une copie de ce que vous avez fait dans les
  exercices précédents. Pour ce faire, vous pouvez ajouter l'annotation `@SuppressWarnings("Duplicates")` à la ligne juste avant la déclaration de la classe nouvellement copiée.
 
 2. Observez que les fonctions "essentielles" de la classe `Taquin` sont suffisamment générales pour être appliquées sur d'autres jeux de même nature. Ajoutez donc dans l'interface `JeuPuzzle` les méthodes en question. Réfléchissez au type de retour de la méthode `genererFils()` de cette interface en discutant avec votre enseignant.
@@ -277,7 +276,7 @@ différemment, et dont les implémentations pourront être interchangées "à la
 
     Un nombre (entre 1 et $`n_{2}`$) placé dans une case `(i,j)` est valide s'il se trouve une seule fois sur sa ligne `i`, une seule fois sur sa colonne `j` et une seule fois sur son bloc d'appartenance.
 
-    Par exemple, si l'on considère la première case vide de la grille ci-dessus, aux coordonnées `(0,1)`, on peut vérifier qu'il n'y a que deux nombres valides qui peuvent la remplir : 3 et 5, formant ainsi deux nouvelles grilles filles de la configuration de gauche.
+    Par exemple, si l'on considère la première case vide de la grille ci-dessus, aux coordonnées `(0,1)`, on peut vérifier qu'il n'y a que deux nombres valides qui puissent la remplir : 3 et 5, formant ainsi deux nouvelles grilles filles de la configuration de gauche.
 
     **Petit truc :** Les coordonnées de la case en haut à gauche du bloc d'appartenance d'une case `(i,j)` sont : `(i - i%n, j - j%n)`, où $`n`$ est la taille d'un côté du bloc ($`n=3`$ pour les Sudoku classiques $`9 \times 9`$).
 
