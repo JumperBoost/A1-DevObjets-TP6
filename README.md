@@ -104,7 +104,7 @@ La classe `Taquin` vous est donnée dans le package `fr.umontpellier.iut.partie1
 Complétez la classe `Taquin` comme suit :
  
 1. Redéfinissez la méthode `toString()` dans la classe `Taquin` afin d'afficher le contenu de son plateau.
-Pour un taquin $n \times m$ l'orientation imposée est la suivante : la ligne du haut contient, de gauche à droite, les cases [0][0], [0][1], ... , [0][m-1], et la case en bas à droite est donc [n-1][m-1].
+Pour un taquin $`n \times m`$ l'orientation imposée est la suivante : la ligne du haut contient, de gauche à droite, les cases [0][0], [0][1], ... , [0][m-1], et la case en bas à droite est donc [n-1][m-1].
 
 2. Complétez la méthode `public boolean estGagnant()` afin qu'elle retourne _vrai_ si le plateau est dans une
    configuration gagnante et _faux_ sinon. Voici les configurations gagnantes pour des taquins $`3 \times 3`$ et $`4 \times 4`$:
