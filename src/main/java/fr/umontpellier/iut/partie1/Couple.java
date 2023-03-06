@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Couple {
 
-    private Taquin taquin;
+    private final Taquin taquin;
     private Couple predecesseur;
 
     public Couple(Taquin taquin, Couple predecesseur) {

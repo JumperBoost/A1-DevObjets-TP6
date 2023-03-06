@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Contexte {
 
-    private Taquin taquinInitial;
+    private final Taquin taquinInitial;
     private ArrayList<Taquin> solution;
 
     public Contexte(Taquin taquinInitial) {
