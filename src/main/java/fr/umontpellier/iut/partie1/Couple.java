@@ -21,7 +21,7 @@ public class Couple {
     }
 
     /**
-     * @return la liste des taquins intermédiaire à partir du taquin initial
+     * @return la liste des taquins intermédiaires à partir du taquin initial
      * et jusqu'au taquin courant
      */
     public ArrayList<Taquin> getListeDeMouvements() {
