@@ -221,11 +221,11 @@ Par exemple, pour $`n=3`$ la succession de coups _1 &rightarrow; 2_ (signifiant 
 le placer au sommet du poteau 2) _1 &rightarrow; 3_, _2 &rightarrow; 3_ est légale, alors que la succession de coups
 _1 &rightarrow; 2_, _1 &rightarrow; 2_ ne l'est pas.
 
-4. Complétez la classe `Hanoi` qui modélise ce jeu et qui doit implémenter l'interface `JeuPuzzle`. Pour modéliser l'état
-   du jeu, on suggère d'utiliser trois `ArrayList<Integer>` contenant chacune les numéros des disques présents sur le poteau
-   correspondant. Vous pouvez également ajouter un attribut `private int taille` pour indiquer le nombre de disques.
-   Une configuration du jeu correspondrait aux 3 poteaux contenant en tout les $`n`$ disques. Chaque mouvement de disque
-   autorisé d'un poteau vers un autre est une nouvelle configuration (nouveau fils donc).
+4. Complétez la classe `Hanoi` qui modélise ce jeu et qui doit implémenter l'interface `JeuPuzzle`.
+ 
+- Pour modéliser l'état du jeu, on suggère d'utiliser trois `ArrayList<Integer>` contenant chacune les numéros des disques présents sur le poteau correspondant (disques numérotés de  `1`, le plus petit, à  `n`). Ajoutez également un attribut `private int taille` pour indiquer le nombre de disques. Cet attribut est certes  redondant, puisque l'on pourrait retrouver la taille en calculant l'entier maximum contenu dans les trois `ArrayList<Integer>`, mais il évitera justement de refaire ce calcul à chaque fois.
+- Pour la génération de fils, on considère qu'un fils est une configuration que l'on peut atteindre avec un seul mouvement de disque légal.
+- Pour la vérification qu'une configuration est gagnante, on pourra supposer que le jeu est dans une configuration légale (c'est à dire sans grands diques empilés sur des petits). En effet, on applique le principe de **responsabilité unique** : c'est à `genererFils` de s'assurer que les configurations générées sont légales, et il est donc inutile de le vérifier ailleurs.
 
 5. Modifiez la classe principale (`AppJeuxPuzzle`) pour maintenant tester la résolution de Hanoï (commencez par 3 disques sur le poteau gauche).
    On constate (avec joie !) qu'il n'y a pas à modifier l'algorithme de résolution puisqu'il fonctionne de façon "transparente"
