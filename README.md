@@ -42,7 +42,9 @@
 ## TP6
 #### _Thème : Héritage, Interfaces_
 
-Date limite de rendu de votre code sur votre dépôt GitLab : **dimanche 17 mars à 23h00**
+Date limite de rendu de votre code sur votre dépôt GitLab :
+* **Partie 1** : **dimanche 10 mars à 23h00**
+* **Partie 2** : **dimanche 17 mars à 23h00**
 
 L'objectif de ce TP est d'écrire un algorithme qui résout par exploration totale n'importe quel "puzzle". Avant de commencer le travail, nous allons illustrer cet algorithme sur un puzzle très simple : un [taquin](https://fr.wikipedia.org/wiki/Taquin) en une dimension.
 Puis, vous implémenterez dans la [Partie 1](https://gitlabinfo.iutmontp.univ-montp2.fr/dev-objets/TP6#partie-1) cet algorithme sur un taquin **en deux dimensions**.
@@ -194,7 +196,22 @@ Maintenant, nous allons généraliser cette stratégie à la résolution d'autre
    allez ignorer ces avertissements, car c'est un moyen simple de garder une copie de ce que vous avez fait dans les
    exercices précédents. Pour ce faire, vous pouvez ajouter l'annotation `@SuppressWarnings("Duplicates")` à la ligne juste avant la déclaration de la classe nouvellement copiée.
 
-2. Observez que les fonctions "essentielles" de la classe `Taquin` sont suffisamment générales pour être appliquées sur d'autres jeux de même nature. Ajoutez donc dans l'interface `JeuPuzzle` les méthodes en question de façon à ce que l'interface `JeuPuzzle` généralise `Taquin`. Réfléchissez au type de retour de la méthode `genererFils()` de cette interface en discutant avec votre enseignant.
+   2. Observez que les fonctions "essentielles" de la classe `Taquin` sont suffisamment générales pour être appliquées sur d'autres jeux de même nature. Ajoutez donc dans l'interface `JeuPuzzle` les méthodes en question de façon à ce que l'interface `JeuPuzzle` généralise `Taquin`. Remarquez la situation délicate de la méthode `genererFils()` :
+      * Dans la classe `Taquin` elle retourne un objet de type `ArrayList<Taquin>`.
+        * Par conséquent, dans l'interface `JeuPuzzle`, on devrait adapter la signature de cette fonction... Mais comment le faire ?
+          * On pourrait penser qu'il faut utiliser `ArrayList<JeuPuzzle>` (après tout `JeuPuzzle` est la super-classe de `Taquin`). Sauf que la phase compilation va échouer. Voyez-vous pourquoi ? Discutez avec votre enseignant.
+            * Pour résoudre le problème ci-dessus, il faut utiliser les __types génériques__, que l'on verra bientôt [en cours](https://www.lirmm.fr/~pvalicov/Cours/dev-objets/Genericite_Structures_de_Donnees_x4.pdf).
+              * Dans un premier temps, le plus simple est d'utiliser les __types génériques inconnus__ (wildcards), avec l'instruction `ArrayList<? extends JeuPuzzle>`. Cette syntaxe signifie que l'on peut substituer le type inconnu `?` par n'importe quelle classe qui hérite de `JeuPuzzle` (et donc, en particulier, `Taquin`). Testez cette solution dans votre code et vérifiez si cela fonctionne. Cette solution, bien qu'elle semble marcher, n'est pas parfaite. Pourquoi ? Discutez avec votre enseignant.
+              * Voici donc la solution la plus propre pour garantir que les objets retournés par `genererFils()` soient bien des `Taquin` dans la classe `Taquin`, des `Hanoi` dans la classe `Hanoi`, etc. :
+
+                ```java
+                   public interface JeuPuzzle<T extends JeuPuzzle<T>> {
+                     boolean estGagnant();
+                     ArrayList<T> genererFils();
+                   }
+                ```
+                  Dans cette solution, `T` est un type générique **fixé** qui est une sous-classe de `JeuPuzzle`. Ainsi, dans la classe `Taquin`, `T` sera **nécessairement** `Taquin`, dans la classe `Hanoi`, `T` sera **nécessairement** `Hanoi`, etc.
+      
 
 3. Faites en sorte que `Taquin` soit une implémentation de l'interface  `JeuPuzzle`  et modifiez votre programme de manière correspondante. Voici comment votre framework devra pouvoir être utilisé dans la classe cliente :
 
