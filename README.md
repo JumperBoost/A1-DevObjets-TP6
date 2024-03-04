@@ -120,10 +120,7 @@ Complétez la classe `Taquin` comme suit :
 
 3. Redéfinissez la méthode `equals(Object o)` dans la classe `Taquin` afin qu'elle permette de comparer le `Taquin` courant avec un autre passé en paramètre.
 
-   **Astuce :** nous vous conseillons d'utiliser votre IDE pour redéfinir `equals(Object o)` et de prendre le temps de
-   comprendre le code qu'il vous générera. Vous ajusterez cette redéfinition, en fonction de la logique du code de votre
-   classe `Taquin`. Prêtez également attention à la redéfinition de la méthode `public int hashCode()` de `Object` qui
-   va être faite. Discutez-en avec votre enseignant (voir aussi le [cours](https://www.lirmm.fr/~pvalicov/Cours/dev-objets/Heritage_Polymorphisme_x4.pdf)).
+   **Astuce :** nous vous conseillons d'utiliser votre IDE pour redéfinir `equals(Object o)` et de prendre le temps de comprendre le code qu'il vous générera. **Attention**, il y a des fortes chances que vous soyez amené à ajuster cette redéfinition, en fonction de la logique du code de votre classe `Taquin` (faites des tests unitaires pour vérifier !). Prêtez également attention à la redéfinition de la méthode `public int hashCode()` de `Object` qui va être faite. Discutez-en avec votre enseignant (voir aussi le [cours](https://www.lirmm.fr/~pvalicov/Cours/dev-objets/Heritage_Polymorphisme_x4.pdf)).
 
 4. Écrivez le corps de la méthode  `public int[] trouverTrou()` afin qu'elle retourne un tableau `[i,j]` si `tableau[i][j]==0`. Cette méthode a pour prérequis que le taquin contient bien un seul 0.
 
