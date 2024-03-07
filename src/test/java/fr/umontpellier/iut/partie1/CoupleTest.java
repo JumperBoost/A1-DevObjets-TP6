@@ -1,6 +1,5 @@
 package fr.umontpellier.iut.partie1;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -9,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CoupleTest {
-    @Disabled
     @Test
     public void test_couple_getListeDeMouvements() {
         int[][] data1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
@@ -28,7 +26,6 @@ class CoupleTest {
         assertEquals(res, res2);
     }
 
-    @Disabled
     @Test
     public void test_couple_mise_a_jour() {
         int[][] data = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};

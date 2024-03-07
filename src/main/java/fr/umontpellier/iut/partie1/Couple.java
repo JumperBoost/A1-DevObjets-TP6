@@ -17,7 +17,15 @@ public class Couple {
      * et l'ensemble des configurations déjà vues.
      */
     public void mettreAJour(ArrayList<Couple> frontiere, ArrayList<Taquin> dejaVus) {
-        throw new RuntimeException("Méthode non implémentée ! Effacez cette ligne et écrivez le code nécessaire");
+        ArrayList<Taquin> taquinsFils = taquin.genererFils();
+        for(Taquin taquin : taquinsFils) {
+            Couple couple_taquin = new Couple(taquin, this);
+            // Ajouter si inexistant
+            if(!dejaVus.contains(couple_taquin.taquin)) {
+                frontiere.add(couple_taquin);
+                dejaVus.add(couple_taquin.taquin);
+            }
+        }
     }
 
     /**
@@ -25,7 +33,13 @@ public class Couple {
      * et jusqu'au taquin courant
      */
     public ArrayList<Taquin> getListeDeMouvements() {
-        throw new RuntimeException("Méthode non implémentée ! Effacez cette ligne et écrivez le code nécessaire");
+        ArrayList<Taquin> listeTaquins = new ArrayList<>();
+        Couple couple = this;
+        do {
+            listeTaquins.add(0, couple.taquin);
+            couple = couple.predecesseur;
+        } while (couple != null);
+        return listeTaquins;
     }
 
     public Taquin getTaquin() {
