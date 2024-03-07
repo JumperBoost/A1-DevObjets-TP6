@@ -16,7 +16,7 @@ public class Taquin {
     public boolean estGagnant() {
         for(int i = 0; i < tableau.length; i++)
             for(int j = 0; j < tableau[i].length; j++)
-                if(tableau[i][j] != i*tableau.length + j+1 && !(i == tableau.length-1 && j == tableau[i].length-1))
+                if(tableau[i][j] != i*tableau[i].length + j+1 && !(i == tableau.length-1 && j == tableau[i].length-1))
                     return false;
         return true;
     }

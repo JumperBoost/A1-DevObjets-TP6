@@ -15,6 +15,27 @@ class TaquinTest {
     }
 
     @Test
+    public void test_est_gagnant_vrai_3_X_3() {
+        int[][] data = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        Taquin t = new Taquin(data);
+        assertTrue(t.estGagnant());
+    }
+
+    @Test
+    public void test_est_gagnant_faux_3_X_4() {
+        int[][] data = {{1, 2, 0, 4}, {5, 6, 3, 9}, {7, 8, 11, 10}};
+        Taquin t = new Taquin(data);
+        assertFalse(t.estGagnant());
+    }
+
+    @Test
+    public void test_est_gagnant_vrai_3_X_4() {
+        int[][] data = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 0}};
+        Taquin t = new Taquin(data);
+        assertTrue(t.estGagnant());
+    }
+
+    @Test
     public void test_trouver_trou_coin_hd_3_X_3() {
         int[][] data = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
         Taquin t = new Taquin(data);
@@ -24,12 +45,57 @@ class TaquinTest {
     }
 
     @Test
+    public void test_trouver_trou_coin_milieu_3_X_3() {
+        int[][] data = {{1, 5, 2}, {4, 0, 3}, {7, 8, 6}};
+        Taquin t = new Taquin(data);
+        int[] res = t.trouverTrou();
+        int[] res2 = {1, 1};
+        assertArrayEquals(res, res2);
+    }
+
+    @Test
+    public void test_trouver_trou_coin_hd_3_X_4() {
+        int[][] data = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}, {10, 11, 9}};
+        Taquin t = new Taquin(data);
+        int[] res = t.trouverTrou();
+        int[] res2 = {0, 2};
+        assertArrayEquals(res, res2);
+    }
+
+    @Test
     public void test_equals_vrai_3_X_3() {
         int[][] data = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
         Taquin t = new Taquin(data);
         int[][] data2 = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
         Taquin t2 = new Taquin(data2);
         assertEquals(t, t2);
+    }
+
+    @Test
+    public void test_equals_faux_3_X_3() {
+        int[][] data = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
+        Taquin t = new Taquin(data);
+        int[][] data2 = {{1, 0, 2}, {4, 5, 3}, {7, 8, 6}};
+        Taquin t2 = new Taquin(data2);
+        assertNotEquals(t, t2);
+    }
+
+    @Test
+    public void test_equals_vrai_3_X_4() {
+        int[][] data = {{1, 2, 0, 4}, {5, 6, 3, 9}, {7, 8, 11, 10}};
+        Taquin t = new Taquin(data);
+        int[][] data2 = {{1, 2, 0, 4}, {5, 6, 3, 9}, {7, 8, 11, 10}};
+        Taquin t2 = new Taquin(data2);
+        assertEquals(t, t2);
+    }
+
+    @Test
+    public void test_equals_faux_3_X_4() {
+        int[][] data = {{1, 2, 0, 4}, {5, 6, 3, 9}, {7, 8, 11, 10}};
+        Taquin t = new Taquin(data);
+        int[][] data2 = {{1, 2, 9, 4}, {5, 6, 3, 0}, {7, 8, 11, 10}};
+        Taquin t2 = new Taquin(data2);
+        assertNotEquals(t, t2);
     }
 
     @Test
