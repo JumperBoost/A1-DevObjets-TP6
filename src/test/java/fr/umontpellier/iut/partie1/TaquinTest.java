@@ -99,12 +99,12 @@ class TaquinTest {
     }
 
     @Test
-    public void test_hashcode_faux_3_X_3() {
+    public void test_hashcode_vrai_3_X_3() {
         int[][] data = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
         Taquin t = new Taquin(data);
         int[][] data2 = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
         Taquin t2 = new Taquin(data2);
-        assertNotEquals(t.hashCode(), t2.hashCode());
+        assertEquals(t.hashCode(), t2.hashCode());
     }
 
     @Test
@@ -121,5 +121,31 @@ class TaquinTest {
         res2.add(fils1);
         res2.add(fils2);
         assertTrue(res.containsAll(res2) && res2.containsAll(res));
+    }
+
+    @Test
+    public void test_hashcode_different_3_X_3() {
+        int[][] data = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
+        Taquin t = new Taquin(data);
+        int[][] data2 = {{1, 2, 0}, {5, 4, 3}, {7, 8, 6}};
+        Taquin t2 = new Taquin(data2);
+        assertNotEquals(t.hashCode(), t2.hashCode());
+    }
+
+    @Test
+    public void test_hashcode_meme_refTableau_meme_hashcode() {
+        int[][] data = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
+        Taquin t = new Taquin(data);
+        Taquin t2 = new Taquin(data);
+        assertEquals(t.hashCode(), t2.hashCode());
+    }
+
+    @Test
+    public void test_hashcode_meme_tableauRefDifferente_meme_hashcode() {
+        int[][] data = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
+        int[][] data2 = {{1, 2, 0}, {4, 5, 3}, {7, 8, 6}};
+        Taquin t = new Taquin(data);
+        Taquin t2 = new Taquin(data2);
+        assertEquals(t.hashCode(), t2.hashCode());
     }
 }

@@ -84,8 +84,6 @@ public class Taquin {
 
     @Override
     public int hashCode() {
-        int res = 13;
-        res += 7*res + tableau.hashCode();
-        return res;
+        return Arrays.deepHashCode(tableau);
     }
 }
