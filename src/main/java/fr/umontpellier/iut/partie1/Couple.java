@@ -21,9 +21,9 @@ public class Couple {
         for(Taquin taquin : taquinsFils) {
             Couple couple_taquin = new Couple(taquin, this);
             // Ajouter si inexistant
-            if(!dejaVus.contains(couple_taquin.taquin)) {
+            if(!dejaVus.contains(taquin)) {
                 frontiere.add(couple_taquin);
-                dejaVus.add(couple_taquin.taquin);
+                dejaVus.add(taquin);
             }
         }
     }
