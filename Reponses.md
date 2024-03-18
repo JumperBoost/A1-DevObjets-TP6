@@ -18,3 +18,13 @@
 2. Solution choisi : la file - exploration de l'arbre en largeur
 3. ✅
 4. ✅
+
+
+## Partie 2 - Création d'un framework de résolution de puzzle
+
+1. ✅
+2. ✅
+3. ✅
+4. ✅
+5. ✅
+6. (À faire)
